@@ -1,0 +1,1282 @@
+fileFormatVersion: 2
+guid: 59b4a21b982baac4490304893a137adb
+timeCreated: 1492519261
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TileD_PHC_Interior-Delapidated_0
+    21300002: TileD_PHC_Interior-Delapidated_1
+    21300004: TileD_PHC_Interior-Delapidated_2
+    21300006: TileD_PHC_Interior-Delapidated_3
+    21300008: TileD_PHC_Interior-Delapidated_4
+    21300010: TileD_PHC_Interior-Delapidated_5
+    21300012: TileD_PHC_Interior-Delapidated_6
+    21300014: TileD_PHC_Interior-Delapidated_7
+    21300016: TileD_PHC_Interior-Delapidated_8
+    21300018: TileD_PHC_Interior-Delapidated_9
+    21300020: TileD_PHC_Interior-Delapidated_10
+    21300022: TileD_PHC_Interior-Delapidated_11
+    21300024: TileD_PHC_Interior-Delapidated_12
+    21300026: TileD_PHC_Interior-Delapidated_13
+    21300028: TileD_PHC_Interior-Delapidated_14
+    21300030: TileD_PHC_Interior-Delapidated_15
+    21300032: TileD_PHC_Interior-Delapidated_16
+    21300034: TileD_PHC_Interior-Delapidated_17
+    21300036: TileD_PHC_Interior-Delapidated_18
+    21300038: TileD_PHC_Interior-Delapidated_19
+    21300040: TileD_PHC_Interior-Delapidated_20
+    21300042: TileD_PHC_Interior-Delapidated_21
+    21300044: TileD_PHC_Interior-Delapidated_22
+    21300046: TileD_PHC_Interior-Delapidated_23
+    21300048: TileD_PHC_Interior-Delapidated_24
+    21300050: TileD_PHC_Interior-Delapidated_25
+    21300052: TileD_PHC_Interior-Delapidated_26
+    21300054: TileD_PHC_Interior-Delapidated_27
+    21300056: TileD_PHC_Interior-Delapidated_28
+    21300058: TileD_PHC_Interior-Delapidated_29
+    21300060: TileD_PHC_Interior-Delapidated_30
+    21300062: TileD_PHC_Interior-Delapidated_31
+    21300064: TileD_PHC_Interior-Delapidated_32
+    21300066: TileD_PHC_Interior-Delapidated_33
+    21300068: TileD_PHC_Interior-Delapidated_34
+    21300070: TileD_PHC_Interior-Delapidated_35
+    21300072: TileD_PHC_Interior-Delapidated_36
+    21300074: TileD_PHC_Interior-Delapidated_37
+    21300076: TileD_PHC_Interior-Delapidated_38
+    21300078: TileD_PHC_Interior-Delapidated_39
+    21300080: TileD_PHC_Interior-Delapidated_40
+    21300082: TileD_PHC_Interior-Delapidated_41
+    21300084: TileD_PHC_Interior-Delapidated_42
+    21300086: TileD_PHC_Interior-Delapidated_43
+    21300088: TileD_PHC_Interior-Delapidated_44
+    21300090: TileD_PHC_Interior-Delapidated_45
+    21300092: TileD_PHC_Interior-Delapidated_46
+    21300094: TileD_PHC_Interior-Delapidated_47
+    21300096: TileD_PHC_Interior-Delapidated_48
+    21300098: TileD_PHC_Interior-Delapidated_49
+    21300100: TileD_PHC_Interior-Delapidated_50
+    21300102: TileD_PHC_Interior-Delapidated_51
+    21300104: TileD_PHC_Interior-Delapidated_52
+    21300106: TileD_PHC_Interior-Delapidated_53
+    21300108: TileD_PHC_Interior-Delapidated_54
+    21300110: TileD_PHC_Interior-Delapidated_55
+    21300112: TileD_PHC_Interior-Delapidated_56
+    21300114: TileD_PHC_Interior-Delapidated_57
+    21300116: TileD_PHC_Interior-Delapidated_58
+    21300118: TileD_PHC_Interior-Delapidated_59
+    21300120: TileD_PHC_Interior-Delapidated_60
+    21300122: TileD_PHC_Interior-Delapidated_61
+    21300124: TileD_PHC_Interior-Delapidated_62
+    21300126: TileD_PHC_Interior-Delapidated_63
+    21300128: TileD_PHC_Interior-Delapidated_64
+    21300130: TileD_PHC_Interior-Delapidated_65
+    21300132: TileD_PHC_Interior-Delapidated_66
+    21300134: TileD_PHC_Interior-Delapidated_67
+    21300136: TileD_PHC_Interior-Delapidated_68
+    21300138: TileD_PHC_Interior-Delapidated_69
+    21300140: TileD_PHC_Interior-Delapidated_70
+    21300142: TileD_PHC_Interior-Delapidated_71
+    21300144: TileD_PHC_Interior-Delapidated_72
+    21300146: TileD_PHC_Interior-Delapidated_73
+    21300148: TileD_PHC_Interior-Delapidated_74
+    21300150: TileD_PHC_Interior-Delapidated_75
+    21300152: TileD_PHC_Interior-Delapidated_76
+    21300154: TileD_PHC_Interior-Delapidated_77
+    21300156: TileD_PHC_Interior-Delapidated_78
+    21300158: TileD_PHC_Interior-Delapidated_79
+    21300160: TileD_PHC_Interior-Delapidated_80
+    21300162: TileD_PHC_Interior-Delapidated_81
+    21300164: TileD_PHC_Interior-Delapidated_82
+    21300166: TileD_PHC_Interior-Delapidated_83
+    21300168: TileD_PHC_Interior-Delapidated_84
+    21300170: TileD_PHC_Interior-Delapidated_85
+    21300172: TileD_PHC_Interior-Delapidated_86
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 856
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 852
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 852
+        width: 92
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_3
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 834
+        width: 92
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 886
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 892
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_6
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 896
+        width: 78
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_7
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 902
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_8
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 902
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_9
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 830
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_10
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 822
+        width: 50
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_11
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 834
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_12
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 838
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_13
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 832
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_14
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 832
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 774
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 740
+        width: 50
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_17
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 738
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_18
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 738
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_19
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 738
+        width: 84
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_20
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 734
+        width: 146
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_21
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 774
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 774
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_23
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 774
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_24
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 686
+        width: 48
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_25
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 684
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 720
+        width: 90
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_27
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 714
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 714
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_29
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 714
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_30
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 558
+        width: 46
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 598
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_32
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 596
+        width: 40
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 572
+        width: 40
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_34
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 566
+        width: 90
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_35
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 622
+        width: 98
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_36
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 674
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_37
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 666
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_38
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 666
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_39
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 468
+        width: 90
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_40
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 564
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_41
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 564
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_42
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 544
+        width: 144
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_43
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 516
+        width: 100
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_44
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 412
+        width: 50
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_45
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 420
+        width: 48
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_46
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 420
+        width: 48
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_47
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 418
+        width: 48
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_48
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 422
+        width: 92
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_49
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 374
+        width: 38
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_50
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 374
+        width: 36
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_51
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 374
+        width: 36
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_52
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 376
+        width: 134
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_53
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 378
+        width: 138
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_54
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 310
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_55
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 312
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_56
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 310
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_57
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 284
+        width: 96
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_58
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 332
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_59
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 238
+        width: 92
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_60
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 230
+        width: 92
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_61
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 240
+        width: 92
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_62
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 134
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_63
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 134
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_64
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 126
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_65
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 122
+        width: 42
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_66
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 116
+        width: 92
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_67
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 116
+        width: 92
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_68
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 132
+        width: 92
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_69
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 120
+        width: 46
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_70
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 120
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_71
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 154
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_72
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 154
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_73
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 152
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_74
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 152
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_75
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 68
+        width: 58
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_76
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 72
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_77
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 20
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_78
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 20
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_79
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 30
+        width: 92
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_80
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 30
+        width: 92
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_81
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 30
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_82
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 30
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_83
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 30
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_84
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_85
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 18
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TileD_PHC_Interior-Delapidated_86
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 20
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

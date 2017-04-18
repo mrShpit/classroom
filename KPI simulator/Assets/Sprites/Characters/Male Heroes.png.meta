@@ -1,0 +1,1408 @@
+fileFormatVersion: 2
+guid: 0d438aaae4107944880360e46be8b65f
+timeCreated: 1492359236
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Male Heroes_0
+    21300002: Male Heroes_1
+    21300004: Male Heroes_2
+    21300006: Male Heroes_3
+    21300008: Male Heroes_4
+    21300010: Male Heroes_5
+    21300012: Male Heroes_6
+    21300014: Male Heroes_7
+    21300016: Male Heroes_8
+    21300018: Male Heroes_9
+    21300020: Male Heroes_10
+    21300022: Male Heroes_11
+    21300024: Male Heroes_12
+    21300026: Male Heroes_13
+    21300028: Male Heroes_14
+    21300030: Male Heroes_15
+    21300032: Male Heroes_16
+    21300034: Male Heroes_17
+    21300036: Male Heroes_18
+    21300038: Male Heroes_19
+    21300040: Male Heroes_20
+    21300042: Male Heroes_21
+    21300044: Male Heroes_22
+    21300046: Male Heroes_23
+    21300048: Male Heroes_24
+    21300050: Male Heroes_25
+    21300052: Male Heroes_26
+    21300054: Male Heroes_27
+    21300056: Male Heroes_28
+    21300058: Male Heroes_29
+    21300060: Male Heroes_30
+    21300062: Male Heroes_31
+    21300064: Male Heroes_32
+    21300066: Male Heroes_33
+    21300068: Male Heroes_34
+    21300070: Male Heroes_35
+    21300072: Male Heroes_36
+    21300074: Male Heroes_37
+    21300076: Male Heroes_38
+    21300078: Male Heroes_39
+    21300080: Male Heroes_40
+    21300082: Male Heroes_41
+    21300084: Male Heroes_42
+    21300086: Male Heroes_43
+    21300088: Male Heroes_44
+    21300090: Male Heroes_45
+    21300092: Male Heroes_46
+    21300094: Male Heroes_47
+    21300096: Male Heroes_48
+    21300098: Male Heroes_49
+    21300100: Male Heroes_50
+    21300102: Male Heroes_51
+    21300104: Male Heroes_52
+    21300106: Male Heroes_53
+    21300108: Male Heroes_54
+    21300110: Male Heroes_55
+    21300112: Male Heroes_56
+    21300114: Male Heroes_57
+    21300116: Male Heroes_58
+    21300118: Male Heroes_59
+    21300120: Male Heroes_60
+    21300122: Male Heroes_61
+    21300124: Male Heroes_62
+    21300126: Male Heroes_63
+    21300128: Male Heroes_64
+    21300130: Male Heroes_65
+    21300132: Male Heroes_66
+    21300134: Male Heroes_67
+    21300136: Male Heroes_68
+    21300138: Male Heroes_69
+    21300140: Male Heroes_70
+    21300142: Male Heroes_71
+    21300144: Male Heroes_72
+    21300146: Male Heroes_73
+    21300148: Male Heroes_74
+    21300150: Male Heroes_75
+    21300152: Male Heroes_76
+    21300154: Male Heroes_77
+    21300156: Male Heroes_78
+    21300158: Male Heroes_79
+    21300160: Male Heroes_80
+    21300162: Male Heroes_81
+    21300164: Male Heroes_82
+    21300166: Male Heroes_83
+    21300168: Male Heroes_84
+    21300170: Male Heroes_85
+    21300172: Male Heroes_86
+    21300174: Male Heroes_87
+    21300176: Male Heroes_88
+    21300178: Male Heroes_89
+    21300180: Male Heroes_90
+    21300182: Male Heroes_91
+    21300184: Male Heroes_92
+    21300186: Male Heroes_93
+    21300188: Male Heroes_94
+    21300190: Male Heroes_95
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 105
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Male Heroes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 670
+        width: 43
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 670
+        width: 42
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 670
+        width: 44
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 670
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_4
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 670
+        width: 45
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 670
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_6
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 670
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_7
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 670
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_8
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 670
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 574
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_10
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 574
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_11
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 574
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_12
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 574
+        width: 45
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 574
+        width: 39
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_14
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 574
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_15
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 574
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_16
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 574
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_17
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 574
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_18
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 574
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_19
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 574
+        width: 45
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_20
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 574
+        width: 47
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 478
+        width: 43
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_22
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 478
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_23
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 478
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_24
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 478
+        width: 45
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_25
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 478
+        width: 39
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_26
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 478
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_27
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 478
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_28
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 478
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_29
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 478
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_30
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 478
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_31
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 478
+        width: 45
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_32
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 478
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_33
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 382
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_34
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 382
+        width: 42
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_35
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 382
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_36
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 382
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_37
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 382
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_38
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 382
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_39
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 382
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_40
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 382
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_41
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 382
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_42
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 382
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_43
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 382
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_44
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 382
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286
+        width: 43
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_46
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 286
+        width: 42
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_47
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 286
+        width: 45
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_48
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 286
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_49
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 286
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_50
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 286
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_51
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 286
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_52
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 286
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_53
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 286
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_54
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 190
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_55
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 190
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_56
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 190
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_57
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 190
+        width: 45
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_58
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 190
+        width: 39
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_59
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 190
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_60
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 190
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_61
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 190
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_62
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 190
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_63
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 190
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_64
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 190
+        width: 45
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_65
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 190
+        width: 47
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 43
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_67
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 94
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_68
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 94
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_69
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 94
+        width: 45
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_70
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 94
+        width: 39
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_71
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 94
+        width: 42
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_72
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 94
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_73
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 94
+        width: 42
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_74
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 94
+        width: 42
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_75
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 94
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_76
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 94
+        width: 45
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_77
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 94
+        width: 48
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_78
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 42
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_79
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 42
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_80
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 42
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_81
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 42
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_82
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_83
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 42
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_84
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_85
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 0
+        width: 42
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_86
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 0
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_87
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 0
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_88
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 0
+        width: 42
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_89
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_90
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 670
+        width: 45
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_91
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 670
+        width: 43
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_92
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 670
+        width: 43
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_93
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 286
+        width: 42
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_94
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 286
+        width: 42
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Male Heroes_95
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 286
+        width: 44
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
