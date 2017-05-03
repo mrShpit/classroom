@@ -9,16 +9,31 @@ public class PlayerController : MonoBehaviour {
     float hInput;
     float vInput;
     public bool canMove = true;
-    
-	void Start ()
+    private static bool ItExists;
+    PlayerTriggerController triggerField;
+    public int StartPoint = -1;
+
+
+    void Start ()
     {
+        if (!ItExists)
+        {
+            ItExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         myBody = this.GetComponent<Rigidbody2D>();
         myAnim = AnimatorController.instance;
-	}
+
+        triggerField = this.transform.Find("TriggerField").GetComponent<PlayerTriggerController>();
+    }
 	
 	void FixedUpdate ()
     {
-
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
 
@@ -33,6 +48,7 @@ public class PlayerController : MonoBehaviour {
         {
             Move(hInput, 0);
             myAnim.UpdateSpeed(hInput, 0);
+            triggerField.HorizontalMovement(hInput);
             return;
         }
 
@@ -40,35 +56,16 @@ public class PlayerController : MonoBehaviour {
         {
             Move(0, vInput);
             myAnim.UpdateSpeed(0, vInput);
+            triggerField.VerticalMovement(vInput);
             return;
         }
-
-        
     }
-
-    void OnTriggerStay2D(Collider2D otherObject)
-    {
-        if (otherObject.gameObject.tag == "Door" && Input.GetKeyDown(KeyCode.E))
-        {
-            //otherObject.gameObject.GetComponent<DoorBehaviour>().Interact();
-        }
-
-        if (otherObject.gameObject.tag == "Interactable" && Input.GetKeyDown(KeyCode.E))
-        {
-            canMove = false;
-            otherObject.gameObject.GetComponent<InteractionScript>().Interact();
-        }
-    }
-
 
     public void Move(float horizontalInput, float verticalInput)
     {
-        Vector2 moveVel = myBody.velocity;
+        Vector2 moveVel = new Vector2();
         moveVel.x = horizontalInput * speed;
         moveVel.y = verticalInput * speed;
         myBody.velocity = moveVel;
     }
-
-
-    
 }

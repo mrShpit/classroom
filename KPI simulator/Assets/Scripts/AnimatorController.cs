@@ -21,22 +21,21 @@ public class AnimatorController : MonoBehaviour
         myAnim = this.gameObject.GetComponent<Animator>();
         ScaleCache = myTrans.localScale;
     }
-
-    void Flip(float currentSpeed)
-    {
-        if ((currentSpeed < 0 && ScaleCache.x == 1) ||
-            (currentSpeed > 0 && ScaleCache.x == -1))
-        {
-            ScaleCache.x *= -1;
-            myTrans.localScale = ScaleCache;
-        }
-    }
     
 	public void UpdateSpeed (float currentHSpeed, float currentVSpeed)
     {
         myAnim.SetFloat("XSpeed", currentHSpeed);
         myAnim.SetFloat("YSpeed", currentVSpeed);
-        if (currentHSpeed != 0)
-            Flip(currentHSpeed);
+
+        if(currentHSpeed == 0 && currentVSpeed == 0)
+        {
+            myAnim.SetBool("Moving", false);
+        }
+        else
+        {
+            myAnim.SetBool("Moving", true);
+            myAnim.SetFloat("XDirection", currentHSpeed);
+            myAnim.SetFloat("YDirection", currentVSpeed);
+        }
 	}
 }

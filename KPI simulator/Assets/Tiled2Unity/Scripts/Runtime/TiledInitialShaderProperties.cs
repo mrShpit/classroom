@@ -16,17 +16,21 @@ namespace Tiled2Unity
         public float InitialOpacity = 1.0f;
         private const int IsometricRangePerYUnit = 100;
 
+        void Update()
+        {
+            MeshRenderer meshRendrer = this.gameObject.GetComponent<MeshRenderer>();
+
+            Mesh mesh = GetComponent<MeshFilter>().mesh;
+            Vector3 vertice = mesh.vertices[0];
+            meshRendrer.sortingOrder = -(int)(meshRendrer.transform.lossyScale.x * vertice.y * IsometricRangePerYUnit) +
+                (int)(meshRendrer.bounds.size.y * IsometricRangePerYUnit / 2);
+        }
 
 
         private void Awake()
         {
-            MeshRenderer meshRendrer = this.gameObject.GetComponent<MeshRenderer>();
-            
-            Mesh mesh = GetComponent<MeshFilter>().mesh;
-            Vector3 vertice = mesh.vertices[0];
-            Debug.Log(meshRendrer.bounds.size.y);
-            meshRendrer.sortingOrder = -(int)(meshRendrer.transform.lossyScale.x * vertice.y * IsometricRangePerYUnit ) + (int) (meshRendrer.bounds.size.y*50);
 
+            MeshRenderer meshRendrer = this.gameObject.GetComponent<MeshRenderer>();
             // If supported in the sahder set our opacity
             // (Keep opacity at 1.0 to avoid copying the material)
 

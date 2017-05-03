@@ -13,7 +13,21 @@ public class CameraFollow : MonoBehaviour {
 
     public Transform targetTrans;
 
+    private static bool ItExists;
+
     // Use this for initialization
+
+    void Start()
+    {
+        if (!ItExists)
+        {
+            ItExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     void LateUpdate ()
     {
         transform.position = new Vector3(
