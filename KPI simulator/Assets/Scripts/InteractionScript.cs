@@ -7,7 +7,7 @@ public class InteractionScript : MonoBehaviour {
 
     public void Interact()
     {
-        TextBoxManager tb_manager = FindObjectOfType<TextBoxManager>();
-        tb_manager.EnableTextPanel(textFile);
+        //TextBoxManager tb_manager = FindObjectOfType<TextBoxManager>();
+        //tb_manager.EnableTextPanel(textFile);
     }
 }

@@ -1,0 +1,1408 @@
+fileFormatVersion: 2
+guid: 8d94766cb91bb3e4891494b6cdcc566d
+timeCreated: 1493897995
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_0"
+    21300002: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_1"
+    21300004: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_2"
+    21300006: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_3"
+    21300008: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_4"
+    21300010: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_5"
+    21300012: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_6"
+    21300014: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_7"
+    21300016: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_8"
+    21300018: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_9"
+    21300020: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_10"
+    21300022: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_11"
+    21300024: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_12"
+    21300026: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_13"
+    21300028: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_14"
+    21300030: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_15"
+    21300032: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_16"
+    21300034: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_17"
+    21300036: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_18"
+    21300038: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_19"
+    21300040: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_20"
+    21300042: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_21"
+    21300044: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_22"
+    21300046: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_23"
+    21300048: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_24"
+    21300050: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_25"
+    21300052: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_26"
+    21300054: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_27"
+    21300056: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_28"
+    21300058: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_29"
+    21300060: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_30"
+    21300062: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_31"
+    21300064: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_32"
+    21300066: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_33"
+    21300068: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_34"
+    21300070: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_35"
+    21300072: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_36"
+    21300074: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_37"
+    21300076: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_38"
+    21300078: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_39"
+    21300080: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_40"
+    21300082: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_41"
+    21300084: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_42"
+    21300086: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_43"
+    21300088: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_44"
+    21300090: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_45"
+    21300092: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_46"
+    21300094: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_47"
+    21300096: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_48"
+    21300098: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_49"
+    21300100: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_50"
+    21300102: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_51"
+    21300104: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_52"
+    21300106: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_53"
+    21300108: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_54"
+    21300110: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_55"
+    21300112: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_56"
+    21300114: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_57"
+    21300116: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_58"
+    21300118: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_59"
+    21300120: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_60"
+    21300122: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_61"
+    21300124: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_62"
+    21300126: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_63"
+    21300128: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_64"
+    21300130: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_65"
+    21300132: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_66"
+    21300134: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_67"
+    21300136: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_68"
+    21300138: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_69"
+    21300140: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_70"
+    21300142: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_71"
+    21300144: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_72"
+    21300146: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_73"
+    21300148: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_74"
+    21300150: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_75"
+    21300152: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_76"
+    21300154: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_77"
+    21300156: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_78"
+    21300158: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_79"
+    21300160: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_80"
+    21300162: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_81"
+    21300164: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_82"
+    21300166: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_83"
+    21300168: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_84"
+    21300170: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_85"
+    21300172: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_86"
+    21300174: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_87"
+    21300176: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_88"
+    21300178: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_89"
+    21300180: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_90"
+    21300182: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_91"
+    21300184: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_92"
+    21300186: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_93"
+    21300188: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_94"
+    21300190: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_95"
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 105
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 678
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_1"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 678
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_2"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 678
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_3"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 678
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_4"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 678
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_5"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 678
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_6"
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 680
+        width: 45
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_7"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 680
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_8"
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 680
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_9"
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 680
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_10"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 680
+        width: 46
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_11"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 680
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_12"
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 582
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_13"
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 582
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_14"
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 582
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_15"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 582
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_16"
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 582
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_17"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 582
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_18"
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 584
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_19"
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 584
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_20"
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 584
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_21"
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 584
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_22"
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 584
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_23"
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 584
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_24"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 486
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_25"
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 486
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_26"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 486
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_27"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 486
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_28"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 486
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_29"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 486
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_30"
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 488
+        width: 43
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_31"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 488
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_32"
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 488
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_33"
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 488
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_34"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 488
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_35"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 488
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_36"
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 390
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_37"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 390
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_38"
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 390
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_39"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 390
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_40"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 390
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_41"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 390
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_42"
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 392
+        width: 43
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_43"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 392
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_44"
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 392
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_45"
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 392
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_46"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 392
+        width: 46
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_47"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 392
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_48"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 294
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_49"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 294
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_50"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 294
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_51"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 294
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_52"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 294
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_53"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 294
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_54"
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 296
+        width: 45
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_55"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 296
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_56"
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 296
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_57"
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 296
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_58"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 296
+        width: 46
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_59"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 296
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_60"
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 198
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_61"
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 198
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_62"
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 198
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_63"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 198
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_64"
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 198
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_65"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 198
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_66"
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 200
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_67"
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 200
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_68"
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 200
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_69"
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 200
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_70"
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 200
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_71"
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 200
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_72"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_73"
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 102
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_74"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 102
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_75"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 102
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_76"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 102
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_77"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 102
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_78"
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 102
+        width: 43
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_79"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 102
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_80"
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 102
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_81"
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 104
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_82"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 104
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_83"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 104
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_84"
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 6
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_85"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 6
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_86"
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 6
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_87"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 6
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_88"
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 6
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_89"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 6
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_90"
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 6
+        width: 45
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_91"
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 6
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_92"
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 6
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_93"
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 8
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_94"
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 8
+        width: 46
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_95"
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 8
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

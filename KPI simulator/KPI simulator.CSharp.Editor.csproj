@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Text\Blackboard.txt" />
+    <None Include="Assets\Text\Text.txt" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\classroom1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\corridor1.tiled2unity.xml" />

@@ -17,15 +17,24 @@ public class TransferPointController : MonoBehaviour
         {
             player.transform.position = this.transform.position;
         }
-
     }
 
-    void OnTriggerStay2D(Collider2D otherObject)
+    IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
         if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            FindObjectOfType<PlayerController>().StartPoint = destinationIndex;
-            SceneManager.LoadScene(destinationLevelName); 
+            CameraFollow camera = FindObjectOfType<CameraFollow>();
+            camera.speedCoef = 1.0f;
+
+            ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+
+            yield return StartCoroutine(sf.FadeToBlack());
+
+            FindObjectOfType<PlayerController>().StartPoint = destinationIndex; // Указать точку входа в локацию
+            SceneManager.LoadScene(destinationLevelName); // Загрузить локацию
+
+            yield return StartCoroutine(sf.FadeToClear());
+            camera.speedCoef = 0.1f;
         }
     }
 }
