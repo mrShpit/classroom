@@ -20,29 +20,29 @@ public class PlayerTriggerController : MonoBehaviour {
 
     public void VerticalMovement(float side)
     {
-        trigger.size = new Vector2(0.5f, 0.3f);
+        trigger.size = new Vector2(0.5f, 0.4f);
 
         if (side == 1)
         {
-            trigger.offset = new Vector2(0, 0.25f);
+            trigger.offset = new Vector2(0, 0.3f);
         }
         else if (side == -1)
         {
-            trigger.offset = new Vector2(0, -0.15f);
+            trigger.offset = new Vector2(0, -0.2f);
         }
     }
 
     public void HorizontalMovement(float side)
     {
-        trigger.size = new Vector2(0.3f, 0.2f);
+        trigger.size = new Vector2(0.4f, 0.4f);
 
         if (side == 1)
         {
-            trigger.offset = new Vector2(0.3f, 0.1f);
+            trigger.offset = new Vector2(0.35f, 0.1f);
         }
         else if (side == -1)
         {
-            trigger.offset = new Vector2(-0.3f, 0.1f);
+            trigger.offset = new Vector2(-0.35f, 0.1f);
         }
     }
 

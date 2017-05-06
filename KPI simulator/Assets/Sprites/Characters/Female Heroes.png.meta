@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8d94766cb91bb3e4891494b6cdcc566d
-timeCreated: 1493897995
+timeCreated: 1493976788
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,10 +100,106 @@ TextureImporter:
     21300186: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_93"
     21300188: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_94"
     21300190: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_95"
+    21300192: Female Heroes_0
+    21300194: Female Heroes_1
+    21300196: Female Heroes_2
+    21300198: Female Heroes_3
+    21300200: Female Heroes_4
+    21300202: Female Heroes_5
+    21300204: Female Heroes_6
+    21300206: Female Heroes_7
+    21300208: Female Heroes_8
+    21300210: Female Heroes_9
+    21300212: Female Heroes_10
+    21300214: Female Heroes_11
+    21300216: Female Heroes_12
+    21300218: Female Heroes_13
+    21300220: Female Heroes_14
+    21300222: Female Heroes_15
+    21300224: Female Heroes_16
+    21300226: Female Heroes_17
+    21300228: Female Heroes_18
+    21300230: Female Heroes_19
+    21300232: Female Heroes_20
+    21300234: Female Heroes_21
+    21300236: Female Heroes_22
+    21300238: Female Heroes_23
+    21300240: Female Heroes_24
+    21300242: Female Heroes_25
+    21300244: Female Heroes_26
+    21300246: Female Heroes_27
+    21300248: Female Heroes_28
+    21300250: Female Heroes_29
+    21300252: Female Heroes_30
+    21300254: Female Heroes_31
+    21300256: Female Heroes_32
+    21300258: Female Heroes_33
+    21300260: Female Heroes_34
+    21300262: Female Heroes_35
+    21300264: Female Heroes_36
+    21300266: Female Heroes_37
+    21300268: Female Heroes_38
+    21300270: Female Heroes_39
+    21300272: Female Heroes_40
+    21300274: Female Heroes_41
+    21300276: Female Heroes_42
+    21300278: Female Heroes_43
+    21300280: Female Heroes_44
+    21300282: Female Heroes_45
+    21300284: Female Heroes_46
+    21300286: Female Heroes_47
+    21300288: Female Heroes_48
+    21300290: Female Heroes_49
+    21300292: Female Heroes_50
+    21300294: Female Heroes_51
+    21300296: Female Heroes_52
+    21300298: Female Heroes_53
+    21300300: Female Heroes_54
+    21300302: Female Heroes_55
+    21300304: Female Heroes_56
+    21300306: Female Heroes_57
+    21300308: Female Heroes_58
+    21300310: Female Heroes_59
+    21300312: Female Heroes_60
+    21300314: Female Heroes_61
+    21300316: Female Heroes_62
+    21300318: Female Heroes_63
+    21300320: Female Heroes_64
+    21300322: Female Heroes_65
+    21300324: Female Heroes_66
+    21300326: Female Heroes_67
+    21300328: Female Heroes_68
+    21300330: Female Heroes_69
+    21300332: Female Heroes_70
+    21300334: Female Heroes_71
+    21300336: Female Heroes_72
+    21300338: Female Heroes_73
+    21300340: Female Heroes_74
+    21300342: Female Heroes_75
+    21300344: Female Heroes_76
+    21300346: Female Heroes_77
+    21300348: Female Heroes_78
+    21300350: Female Heroes_79
+    21300352: Female Heroes_80
+    21300354: Female Heroes_81
+    21300356: Female Heroes_82
+    21300358: Female Heroes_83
+    21300360: Female Heroes_84
+    21300362: Female Heroes_85
+    21300364: Female Heroes_86
+    21300366: Female Heroes_87
+    21300368: Female Heroes_88
+    21300370: Female Heroes_89
+    21300372: Female Heroes_90
+    21300374: Female Heroes_91
+    21300376: Female Heroes_92
+    21300378: Female Heroes_93
+    21300380: Female Heroes_94
+    21300382: Female Heroes_95
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -126,7 +222,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
-    aniso: 16
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -154,7 +250,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_0"
+      name: Female Heroes_0
       rect:
         serializedVersion: 2
         x: 0
@@ -167,7 +263,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_1"
+      name: Female Heroes_1
       rect:
         serializedVersion: 2
         x: 50
@@ -180,7 +276,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_2"
+      name: Female Heroes_2
       rect:
         serializedVersion: 2
         x: 96
@@ -193,7 +289,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_3"
+      name: Female Heroes_3
       rect:
         serializedVersion: 2
         x: 154
@@ -206,7 +302,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_4"
+      name: Female Heroes_4
       rect:
         serializedVersion: 2
         x: 204
@@ -219,7 +315,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_5"
+      name: Female Heroes_5
       rect:
         serializedVersion: 2
         x: 252
@@ -232,7 +328,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_6"
+      name: Female Heroes_6
       rect:
         serializedVersion: 2
         x: 316
@@ -245,7 +341,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_7"
+      name: Female Heroes_7
       rect:
         serializedVersion: 2
         x: 367
@@ -258,7 +354,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_8"
+      name: Female Heroes_8
       rect:
         serializedVersion: 2
         x: 411
@@ -271,7 +367,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_9"
+      name: Female Heroes_9
       rect:
         serializedVersion: 2
         x: 479
@@ -284,7 +380,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_10"
+      name: Female Heroes_10
       rect:
         serializedVersion: 2
         x: 527
@@ -297,7 +393,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_11"
+      name: Female Heroes_11
       rect:
         serializedVersion: 2
         x: 575
@@ -310,7 +406,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_12"
+      name: Female Heroes_12
       rect:
         serializedVersion: 2
         x: 6
@@ -323,7 +419,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_13"
+      name: Female Heroes_13
       rect:
         serializedVersion: 2
         x: 54
@@ -336,7 +432,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_14"
+      name: Female Heroes_14
       rect:
         serializedVersion: 2
         x: 102
@@ -349,7 +445,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_15"
+      name: Female Heroes_15
       rect:
         serializedVersion: 2
         x: 160
@@ -362,7 +458,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_16"
+      name: Female Heroes_16
       rect:
         serializedVersion: 2
         x: 208
@@ -375,7 +471,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_17"
+      name: Female Heroes_17
       rect:
         serializedVersion: 2
         x: 256
@@ -388,7 +484,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_18"
+      name: Female Heroes_18
       rect:
         serializedVersion: 2
         x: 321
@@ -401,7 +497,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_19"
+      name: Female Heroes_19
       rect:
         serializedVersion: 2
         x: 369
@@ -414,7 +510,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_20"
+      name: Female Heroes_20
       rect:
         serializedVersion: 2
         x: 417
@@ -427,7 +523,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_21"
+      name: Female Heroes_21
       rect:
         serializedVersion: 2
         x: 485
@@ -440,7 +536,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_22"
+      name: Female Heroes_22
       rect:
         serializedVersion: 2
         x: 537
@@ -453,7 +549,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_23"
+      name: Female Heroes_23
       rect:
         serializedVersion: 2
         x: 581
@@ -466,7 +562,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_24"
+      name: Female Heroes_24
       rect:
         serializedVersion: 2
         x: 0
@@ -479,7 +575,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_25"
+      name: Female Heroes_25
       rect:
         serializedVersion: 2
         x: 48
@@ -492,7 +588,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_26"
+      name: Female Heroes_26
       rect:
         serializedVersion: 2
         x: 96
@@ -505,7 +601,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_27"
+      name: Female Heroes_27
       rect:
         serializedVersion: 2
         x: 154
@@ -518,7 +614,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_28"
+      name: Female Heroes_28
       rect:
         serializedVersion: 2
         x: 204
@@ -531,7 +627,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_29"
+      name: Female Heroes_29
       rect:
         serializedVersion: 2
         x: 252
@@ -544,7 +640,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_30"
+      name: Female Heroes_30
       rect:
         serializedVersion: 2
         x: 316
@@ -557,7 +653,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_31"
+      name: Female Heroes_31
       rect:
         serializedVersion: 2
         x: 367
@@ -570,7 +666,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_32"
+      name: Female Heroes_32
       rect:
         serializedVersion: 2
         x: 411
@@ -583,7 +679,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_33"
+      name: Female Heroes_33
       rect:
         serializedVersion: 2
         x: 479
@@ -596,7 +692,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_34"
+      name: Female Heroes_34
       rect:
         serializedVersion: 2
         x: 527
@@ -609,7 +705,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_35"
+      name: Female Heroes_35
       rect:
         serializedVersion: 2
         x: 575
@@ -622,7 +718,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_36"
+      name: Female Heroes_36
       rect:
         serializedVersion: 2
         x: 2
@@ -635,7 +731,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_37"
+      name: Female Heroes_37
       rect:
         serializedVersion: 2
         x: 50
@@ -648,7 +744,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_38"
+      name: Female Heroes_38
       rect:
         serializedVersion: 2
         x: 98
@@ -661,7 +757,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_39"
+      name: Female Heroes_39
       rect:
         serializedVersion: 2
         x: 154
@@ -674,7 +770,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_40"
+      name: Female Heroes_40
       rect:
         serializedVersion: 2
         x: 204
@@ -687,7 +783,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_41"
+      name: Female Heroes_41
       rect:
         serializedVersion: 2
         x: 252
@@ -700,7 +796,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_42"
+      name: Female Heroes_42
       rect:
         serializedVersion: 2
         x: 318
@@ -713,7 +809,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_43"
+      name: Female Heroes_43
       rect:
         serializedVersion: 2
         x: 367
@@ -726,7 +822,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_44"
+      name: Female Heroes_44
       rect:
         serializedVersion: 2
         x: 411
@@ -739,7 +835,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_45"
+      name: Female Heroes_45
       rect:
         serializedVersion: 2
         x: 483
@@ -752,7 +848,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_46"
+      name: Female Heroes_46
       rect:
         serializedVersion: 2
         x: 527
@@ -765,7 +861,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_47"
+      name: Female Heroes_47
       rect:
         serializedVersion: 2
         x: 575
@@ -778,7 +874,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_48"
+      name: Female Heroes_48
       rect:
         serializedVersion: 2
         x: 0
@@ -791,7 +887,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_49"
+      name: Female Heroes_49
       rect:
         serializedVersion: 2
         x: 50
@@ -804,7 +900,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_50"
+      name: Female Heroes_50
       rect:
         serializedVersion: 2
         x: 96
@@ -817,7 +913,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_51"
+      name: Female Heroes_51
       rect:
         serializedVersion: 2
         x: 154
@@ -830,7 +926,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_52"
+      name: Female Heroes_52
       rect:
         serializedVersion: 2
         x: 204
@@ -843,7 +939,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_53"
+      name: Female Heroes_53
       rect:
         serializedVersion: 2
         x: 252
@@ -856,7 +952,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_54"
+      name: Female Heroes_54
       rect:
         serializedVersion: 2
         x: 316
@@ -869,7 +965,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_55"
+      name: Female Heroes_55
       rect:
         serializedVersion: 2
         x: 367
@@ -882,7 +978,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_56"
+      name: Female Heroes_56
       rect:
         serializedVersion: 2
         x: 411
@@ -895,7 +991,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_57"
+      name: Female Heroes_57
       rect:
         serializedVersion: 2
         x: 479
@@ -908,7 +1004,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_58"
+      name: Female Heroes_58
       rect:
         serializedVersion: 2
         x: 527
@@ -921,7 +1017,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_59"
+      name: Female Heroes_59
       rect:
         serializedVersion: 2
         x: 575
@@ -934,7 +1030,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_60"
+      name: Female Heroes_60
       rect:
         serializedVersion: 2
         x: 6
@@ -947,7 +1043,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_61"
+      name: Female Heroes_61
       rect:
         serializedVersion: 2
         x: 54
@@ -960,7 +1056,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_62"
+      name: Female Heroes_62
       rect:
         serializedVersion: 2
         x: 102
@@ -973,7 +1069,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_63"
+      name: Female Heroes_63
       rect:
         serializedVersion: 2
         x: 160
@@ -986,7 +1082,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_64"
+      name: Female Heroes_64
       rect:
         serializedVersion: 2
         x: 208
@@ -999,7 +1095,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_65"
+      name: Female Heroes_65
       rect:
         serializedVersion: 2
         x: 256
@@ -1012,7 +1108,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_66"
+      name: Female Heroes_66
       rect:
         serializedVersion: 2
         x: 321
@@ -1025,7 +1121,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_67"
+      name: Female Heroes_67
       rect:
         serializedVersion: 2
         x: 369
@@ -1038,7 +1134,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_68"
+      name: Female Heroes_68
       rect:
         serializedVersion: 2
         x: 417
@@ -1051,7 +1147,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_69"
+      name: Female Heroes_69
       rect:
         serializedVersion: 2
         x: 485
@@ -1064,7 +1160,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_70"
+      name: Female Heroes_70
       rect:
         serializedVersion: 2
         x: 537
@@ -1077,7 +1173,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_71"
+      name: Female Heroes_71
       rect:
         serializedVersion: 2
         x: 581
@@ -1090,7 +1186,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_72"
+      name: Female Heroes_72
       rect:
         serializedVersion: 2
         x: 0
@@ -1103,7 +1199,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_73"
+      name: Female Heroes_73
       rect:
         serializedVersion: 2
         x: 48
@@ -1116,7 +1212,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_74"
+      name: Female Heroes_74
       rect:
         serializedVersion: 2
         x: 96
@@ -1129,7 +1225,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_75"
+      name: Female Heroes_75
       rect:
         serializedVersion: 2
         x: 154
@@ -1142,7 +1238,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_76"
+      name: Female Heroes_76
       rect:
         serializedVersion: 2
         x: 204
@@ -1155,7 +1251,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_77"
+      name: Female Heroes_77
       rect:
         serializedVersion: 2
         x: 252
@@ -1168,7 +1264,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_78"
+      name: Female Heroes_78
       rect:
         serializedVersion: 2
         x: 316
@@ -1181,7 +1277,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_79"
+      name: Female Heroes_79
       rect:
         serializedVersion: 2
         x: 367
@@ -1194,7 +1290,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_80"
+      name: Female Heroes_80
       rect:
         serializedVersion: 2
         x: 413
@@ -1207,7 +1303,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_81"
+      name: Female Heroes_81
       rect:
         serializedVersion: 2
         x: 479
@@ -1220,7 +1316,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_82"
+      name: Female Heroes_82
       rect:
         serializedVersion: 2
         x: 527
@@ -1233,7 +1329,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_83"
+      name: Female Heroes_83
       rect:
         serializedVersion: 2
         x: 575
@@ -1246,7 +1342,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_84"
+      name: Female Heroes_84
       rect:
         serializedVersion: 2
         x: 2
@@ -1259,7 +1355,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_85"
+      name: Female Heroes_85
       rect:
         serializedVersion: 2
         x: 50
@@ -1272,7 +1368,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_86"
+      name: Female Heroes_86
       rect:
         serializedVersion: 2
         x: 98
@@ -1285,7 +1381,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_87"
+      name: Female Heroes_87
       rect:
         serializedVersion: 2
         x: 154
@@ -1298,7 +1394,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_88"
+      name: Female Heroes_88
       rect:
         serializedVersion: 2
         x: 204
@@ -1311,7 +1407,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_89"
+      name: Female Heroes_89
       rect:
         serializedVersion: 2
         x: 252
@@ -1324,7 +1420,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_90"
+      name: Female Heroes_90
       rect:
         serializedVersion: 2
         x: 318
@@ -1337,7 +1433,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_91"
+      name: Female Heroes_91
       rect:
         serializedVersion: 2
         x: 367
@@ -1350,7 +1446,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_92"
+      name: Female Heroes_92
       rect:
         serializedVersion: 2
         x: 413
@@ -1363,7 +1459,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_93"
+      name: Female Heroes_93
       rect:
         serializedVersion: 2
         x: 483
@@ -1376,7 +1472,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_94"
+      name: Female Heroes_94
       rect:
         serializedVersion: 2
         x: 527
@@ -1389,7 +1485,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: "Female Heroes - \u043A\u043E\u043F\u0438\u044F_95"
+      name: Female Heroes_95
       rect:
         serializedVersion: 2
         x: 575

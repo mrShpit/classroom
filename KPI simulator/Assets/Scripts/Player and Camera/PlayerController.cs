@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private static bool ItExists;
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
+    public int dialogChoice;
 
 
     void Start ()

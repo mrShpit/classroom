@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class CameraFollow : MonoBehaviour {
 
     //[SerializeField]
-    //private float xMin; -> создаст поле в юнити
+    //private float xMin; -> создаст поле в инспекторе юнити
 
     private float xMin;
     private float xMax;
