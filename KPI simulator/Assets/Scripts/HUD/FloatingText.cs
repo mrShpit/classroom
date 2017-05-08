@@ -11,11 +11,22 @@ public class FloatingText : MonoBehaviour
     public Color textColor;
     public bool Clone;
 	
+
+    void Start()
+    {
+        displayText.color = textColor;
+    }
+
 	// Update is called once per frame
+
+
 	void Update ()
     {
         displayText.text = text;
-        displayText.color = textColor;
+
+        Color color = displayText.color;
+        color.a -= 0.015f;
+        displayText.color = color;
 
         transform.position = new Vector3(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime), transform.position.z);
 

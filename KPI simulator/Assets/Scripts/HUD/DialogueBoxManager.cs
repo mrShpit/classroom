@@ -15,6 +15,7 @@ public class DialogueBoxManager : MonoBehaviour
     private bool SkipTyping = false;
     private Animator dBoxAnim;
     private AudioSource voiceBeep;
+    private PhoneController smartphone;
 
     private bool ChoiceMode;
     List<string> ChoiceList;
@@ -26,6 +27,8 @@ public class DialogueBoxManager : MonoBehaviour
     void Start ()
     {
         dBoxAnim = GetComponent<Animator>();
+        smartphone = FindObjectOfType<PhoneController>();
+
         dBox.SetActive(false);
         talkActive = false;
         ChoiceMode = false;
@@ -34,7 +37,7 @@ public class DialogueBoxManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (talkActive && Input.GetKeyDown(KeyCode.Space) && !dBoxIsMoving && !IsTyping) //После окончания печати нажать на пробел
+        if (talkActive && Input.GetKeyDown(KeyCode.Space) && !dBoxIsMoving && !IsTyping && !smartphone.phoneActive) //После окончания печати нажать на пробел
         {
             currentTextLine++;
 
@@ -48,12 +51,12 @@ public class DialogueBoxManager : MonoBehaviour
             }
         }
 
-        else if (talkActive && Input.GetKeyDown(KeyCode.Space) && !dBoxIsMoving && IsTyping) //Во время печати нажать на пробел
+        else if (talkActive && Input.GetKeyDown(KeyCode.Space) && !dBoxIsMoving && IsTyping && !smartphone.phoneActive) //Во время печати нажать на пробел
         {
             SkipTyping = true;
         }
 
-        if(ChoiceMode && ( Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) )) //Листать выбор вверх
+        if(ChoiceMode && ( Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ) && !smartphone.phoneActive) //Листать выбор вверх
         {
             if(currentChoice > 0)
             {
@@ -61,7 +64,7 @@ public class DialogueBoxManager : MonoBehaviour
                 UpdateChoice();
             }
         }
-        if (ChoiceMode && ( Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) )) //Листать выбор вниз
+        if (ChoiceMode && ( Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) ) && !smartphone.phoneActive) //Листать выбор вниз
         {
             if(currentChoice < ChoiceList.Count - 1)
             {
@@ -69,7 +72,7 @@ public class DialogueBoxManager : MonoBehaviour
                 UpdateChoice();
             }
         }
-        if (ChoiceMode && Input.GetKeyDown(KeyCode.Return)) //Сделать выбор
+        if (ChoiceMode && Input.GetKeyDown(KeyCode.Return) && !smartphone.phoneActive) //Сделать выбор
         {
             ChoiceMode = false;
         }

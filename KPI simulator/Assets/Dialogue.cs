@@ -9,8 +9,11 @@ namespace Assets
     public class Dialogue
     {
         public string DialogueName;
-        public Flag[] conditionCharFlags;
-        public Flag[] conditionWorldFlags;
+        public List<Flag> conditionCharFlags;
+        public List<Flag> conditionWorldFlags;
+        public List<string> questsPassedNeeded;
+        public string passTheQuest;
+        public int RepNeeded; 
         public List<DialogueNode> dialogueNodes;
         public bool OnlyOneUse;
 
@@ -41,24 +44,20 @@ namespace Assets
             flagStatus = status;
         }
 
-        public static bool FlagCheck(Flag [] list, Flag flagToComare)
+        public static bool FlagCheck(List<Flag> givenFlags, Flag flagToComare)
         {
 
-            foreach (Flag f in list)
-            {
-                if (f.flagName == flagToComare.flagName)
-                {
-                    if (f.flagStatus == flagToComare.flagStatus)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-
-            return false;
+            Flag flag = null;
+            flag = givenFlags.Find(x => x.flagName == flagToComare.flagName);
+            if (flag != null && flag.flagStatus == flagToComare.flagStatus)
+                return true;
+            else
+                return false;
         }
 
-        public static bool FlagCheck(Flag[] conditionFlags, Flag[] givenFlags)
+
+
+        public static bool FlagCheck(List<Flag> conditionFlags, List<Flag> givenFlags)
         {
             foreach(Flag condition in conditionFlags)
             {
@@ -87,12 +86,13 @@ namespace Assets
         public string choiceText;
         public int targetNode;
         public List<string> answerText;
-        public Flag[] conditionCharFlags;
-        public Flag[] conditionWorldFlags;
+        public List<Flag> conditionCharFlags;
+        public List<Flag> conditionWorldFlags;
         public int reputationBonus;
-        public Flag[] consequencesWorldFlags;
-        public Flag[] consequencesCharFlags;
+        public List<Flag> consequencesWorldFlags;
+        public List<Flag> consequencesCharFlags;
         public bool OnlyOneUse;
+        public Quest QuestToGet;
 
         private bool used;
 

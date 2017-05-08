@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -64,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\CatherineController.cs" />
+    <Compile Include="Assets\Quest.cs" />
     <Compile Include="Assets\Scripts\CharacterData.cs" />
     <Compile Include="Assets\Scripts\CommentController.cs" />
     <Compile Include="Assets\Scripts\DirectorController.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Assets\Scripts\HUD\DialogueBoxManager.cs" />
     <Compile Include="Assets\Scripts\HUD\FloatingText.cs" />
     <Compile Include="Assets\Scripts\HUD\HUD_controller.cs" />
+    <Compile Include="Assets\Scripts\HUD\PhoneController.cs" />
     <Compile Include="Assets\Scripts\InteractionScript.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\AnimatorController.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\CameraFollow.cs" />

@@ -28,12 +28,12 @@ public class CharacterData : MonoBehaviour
                 reputation = value;
         }
     }
-    public Flag[] Character_Flags;
+    public List<Flag> Character_Flags;
 
     [SerializeField]
     public List<Dialogue> allDialogues;
     public GameObject floatingText;
-
+    
     private Dialogue activeDialogue;
     private bool dialogueEnabled = false;
     private int currentNodeId;
@@ -55,7 +55,8 @@ public class CharacterData : MonoBehaviour
     IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
         ChooseActiveDialogue();
-        if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E) && !dialogueEnabled && activeDialogue != null)
+        PhoneController phone = FindObjectOfType<PhoneController>();
+        if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E) && !dialogueEnabled && activeDialogue != null && !phone.phoneActive)
         {
             yield return StartCoroutine(NPD_Dialogue());
         }
@@ -67,6 +68,11 @@ public class CharacterData : MonoBehaviour
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
         yield return StartCoroutine(DM.ShowDialogBox());
         int targetNodeID = 0;
+
+        if(activeDialogue.passTheQuest != string.Empty)
+        {
+            PassTheQuestAndGetReward(activeDialogue.passTheQuest);
+        }
 
         while (targetNodeID != -1)
         {
@@ -86,8 +92,7 @@ public class CharacterData : MonoBehaviour
                 choiceVariants.RemoveAll(choice => choice.Used == true
                     || !Flag.FlagCheck(choice.conditionCharFlags, Character_Flags)
                     || !Flag.FlagCheck(choice.conditionWorldFlags, FindObjectOfType<DirectorController>().WorldFlags));
-
-                Debug.Log(choiceVariants.Count);
+                
                 List <string> choicesTexts = choiceVariants.Select(x => x.choiceText).ToList();
                 string comment = currentNode.nodeText[currentNode.nodeText.Count - 1];
                 yield return StartCoroutine(DM.MakeChoice(comment, choicesTexts));
@@ -117,6 +122,24 @@ public class CharacterData : MonoBehaviour
         
     }
 
+    private void ChangeReputation(int rep)
+    {
+        this.Reputation += rep;
+        var clone = (GameObject)Instantiate(floatingText, this.transform.position, Quaternion.Euler(Vector3.zero));
+        clone.GetComponent<FloatingText>().Clone = true;
+
+        if (rep > 0)
+        {
+            clone.GetComponent<FloatingText>().textColor = Color.cyan;
+            clone.GetComponent<FloatingText>().text = "+" + rep + " REP";
+        }
+        else
+        {
+            clone.GetComponent<FloatingText>().textColor = Color.red;
+            clone.GetComponent<FloatingText>().text = rep + " REP";
+        }
+    }
+
     private void ChooseActiveDialogue()
     {
         activeDialogue = null;
@@ -127,10 +150,19 @@ public class CharacterData : MonoBehaviour
 
             bool CharFlagsOK = Flag.FlagCheck(dialogue_variant.conditionCharFlags, Character_Flags);
             bool WorldFlagsOK = Flag.FlagCheck(dialogue_variant.conditionWorldFlags, FindObjectOfType<DirectorController>().WorldFlags);
-
-            if (WorldFlagsOK && CharFlagsOK)
+            bool AllNeededQuestDone = true;
+            foreach(string questName in dialogue_variant.questsPassedNeeded)
             {
-                activeDialogue = dialogue_variant;
+                if ( !FindObjectOfType<DirectorController>().CheckQuestPassed(questName) )
+                {
+                    AllNeededQuestDone = false;
+                    break;
+                }
+            }
+
+            if (WorldFlagsOK && CharFlagsOK && AllNeededQuestDone && dialogue_variant.RepNeeded <= this.Reputation)
+            {
+                activeDialogue = dialogue_variant; //Сделать много вариантов диалога на выбора
                 break;
             }
 
@@ -141,30 +173,25 @@ public class CharacterData : MonoBehaviour
     {
         if (choice.reputationBonus != 0)
         {
-            this.Reputation += choice.reputationBonus;
-            var clone = (GameObject)Instantiate(floatingText, this.transform.position, Quaternion.Euler(Vector3.zero));
-            clone.GetComponent<FloatingText>().Clone = true;
-
-            if (choice.reputationBonus > 0)
-            {
-                clone.GetComponent<FloatingText>().textColor = Color.cyan;
-                clone.GetComponent<FloatingText>().text = "+" + choice.reputationBonus + " REP";
-            }
-            else  
-            {
-                clone.GetComponent<FloatingText>().textColor = Color.red;
-                clone.GetComponent<FloatingText>().text = choice.reputationBonus + " REP";
-            }
-
-            
+            ChangeReputation(choice.reputationBonus);
         }
 
-        //Поднять флаги персонажа
-        foreach(Flag flagCons in choice.consequencesCharFlags)
+        RaiseFlags(choice.consequencesWorldFlags, choice.consequencesCharFlags);
+
+        if(choice.QuestToGet.Name != string.Empty)
         {
-            foreach(Flag flagCurrent in this.Character_Flags)
+            FindObjectOfType<DirectorController>().activeQuests.Add(choice.QuestToGet);
+        }
+    }
+
+    private void RaiseFlags(List<Flag> worldFlags, List<Flag> charFlags)
+    {
+        //Поднять флаги персонажа
+        foreach (Flag flagCons in charFlags)
+        {
+            foreach (Flag flagCurrent in this.Character_Flags)
             {
-                if(flagCurrent.flagName == flagCons.flagName)
+                if (flagCurrent.flagName == flagCons.flagName)
                 {
                     flagCurrent.flagStatus = flagCons.flagStatus;
                     break;
@@ -173,7 +200,7 @@ public class CharacterData : MonoBehaviour
         }
 
         //Поднять флаги мира
-        foreach (Flag flagCons in choice.conditionWorldFlags)
+        foreach (Flag flagCons in worldFlags)
         {
             foreach (Flag flagCurrent in FindObjectOfType<DirectorController>().WorldFlags)
             {
@@ -186,5 +213,16 @@ public class CharacterData : MonoBehaviour
         }
     }
 
+    private void PassTheQuestAndGetReward(string questName)
+    {
+        DirectorController director = FindObjectOfType<DirectorController>();
+        Quest quest = director.finishedQuests.Find(x => x.Name == questName);
 
+        if (quest.rewardRep != 0)
+            ChangeReputation(quest.rewardRep);
+        //Дать деньги и опыт
+
+        RaiseFlags(quest.worldConsequences, quest.charConsequences);
+
+    }
 }
