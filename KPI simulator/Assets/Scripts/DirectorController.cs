@@ -11,6 +11,7 @@ public class DirectorController : MonoBehaviour
     public List<Quest> activeQuests;
     public List<Quest> finishedQuests;
     public List<Quest> passedQuests;
+    public GameObject chair;
 
     // Use this for initialization
     void Start ()

@@ -8,6 +8,8 @@ public class DialogueBoxManager : MonoBehaviour
     public GameObject dBox;
     public Text dText;
     public bool talkActive;
+    public int currentChoice;
+
     private int currentTextLine = 0;
     private List<string> DialogLines;
     private bool dBoxIsMoving = false;
@@ -16,10 +18,10 @@ public class DialogueBoxManager : MonoBehaviour
     private Animator dBoxAnim;
     private AudioSource voiceBeep;
     private PhoneController smartphone;
-
+    private string speaker;
     private bool ChoiceMode;
+
     List<string> ChoiceList;
-    public int currentChoice;
     string choiceComment;
 
 
@@ -92,12 +94,13 @@ public class DialogueBoxManager : MonoBehaviour
             yield return null;
     }
 
-    public IEnumerator Talk(List<string> text, AudioSource audio)
+    public IEnumerator Talk(string speakerName, List<string> text, AudioSource audio)
     {
             talkActive = true;
 
             currentTextLine = 0;
             DialogLines = text; //Определить текст для печати
+            speaker = speakerName;
             voiceBeep = audio;
 
             StartCoroutine(TypeMessage(DialogLines[0]));
@@ -111,7 +114,14 @@ public class DialogueBoxManager : MonoBehaviour
         IsTyping = true;
         SkipTyping = false;
         int letter = 0;
-        dText.text = string.Empty;
+
+        if(speaker != string.Empty)
+        {
+            dText.text = speaker + ": ";
+        }
+        else 
+            dText.text = string.Empty;
+
         while(!SkipTyping && (letter < textLine.Length - 1) )
         {
             dText.text += textLine[letter];
@@ -123,7 +133,13 @@ public class DialogueBoxManager : MonoBehaviour
         }
 
         IsTyping = false;
-        dText.text = textLine;
+
+        if (speaker != string.Empty)
+        {
+            dText.text = speaker + ": " + textLine;
+        }
+        else
+            dText.text = textLine;
     }
 
     void AnimationComplete()
@@ -148,6 +164,8 @@ public class DialogueBoxManager : MonoBehaviour
 
     public void HideDialogBox()
     {
+        PlayerController PC = FindObjectOfType<PlayerController>();
+        PC.canMove = true;
         ChoiceMode = false;
         talkActive = false;
         dBoxAnim.SetTrigger("BoxOut");
@@ -157,8 +175,6 @@ public class DialogueBoxManager : MonoBehaviour
     {
         dBox.SetActive(false);
         talkActive = false;
-        PlayerController PC = FindObjectOfType<PlayerController>();
-        PC.canMove = true;
     } //Вызываеться по окончанию анимации ухода окна
 
     private void UpdateChoice()

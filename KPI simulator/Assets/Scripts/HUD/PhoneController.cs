@@ -8,7 +8,9 @@ public class PhoneController : MonoBehaviour
     public GameObject phoneBox;
     public bool phoneActive;
     public Image pointer;
-    public Vector3 position;
+
+    public Vector3 startPointerPos;
+    private Vector2 currentPointerPos;
 
     private Animator phoneAnim;
     private bool phoneIsMoving;
@@ -16,11 +18,14 @@ public class PhoneController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        currentPointerPos = new Vector2(0, 0);
         phoneAnim = GetComponent<Animator>();
+        
+        startPointerPos = pointer.rectTransform.position;
         phoneBox.SetActive(false);
         phoneActive = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -36,56 +41,41 @@ public class PhoneController : MonoBehaviour
 
         if(phoneActive == true && !phoneIsMoving)
         {
-            
-
-            if(Input.GetKeyDown(KeyCode.UpArrow) && position.y <  70)
+            if(Input.GetKeyDown(KeyCode.DownArrow) && currentPointerPos.y < 2)
             {
-                position.y += 70;
-                pointer.transform.position = position;
+                currentPointerPos.y++;
+                pointer.rectTransform.position = new Vector3(startPointerPos.x + currentPointerPos.x * 80, startPointerPos.y - currentPointerPos.y * 70);
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow) && position.y > -70)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && currentPointerPos.y > 0)
             {
-                position.y -= 70;
-                pointer.transform.position = position;
+                currentPointerPos.y--;
+                pointer.rectTransform.position = new Vector3(startPointerPos.x + currentPointerPos.x * 80, startPointerPos.y - currentPointerPos.y * 70);
             }
-            if(Input.GetKeyDown(KeyCode.LeftArrow) && position.x > -40)
+            if(Input.GetKeyDown(KeyCode.LeftArrow) && currentPointerPos.x > 0)
             {
-                position.x -= 80;
-                pointer.transform.position = position;
+                currentPointerPos.x --;
+                pointer.rectTransform.position = new Vector3(startPointerPos.x + currentPointerPos.x * 80, startPointerPos.y - currentPointerPos.y * 70);
             }
-            if(Input.GetKeyDown(KeyCode.RightArrow) && position.x < 40)
+            if(Input.GetKeyDown(KeyCode.RightArrow) && currentPointerPos.x < 1)
             {
-                position.x += 80;
-                pointer.transform.position = position;
+                currentPointerPos.x ++;
+                pointer.rectTransform.position = new Vector3(startPointerPos.x + currentPointerPos.x * 80, startPointerPos.y - currentPointerPos.y * 70);
             }
 
         }
     }
 
-    void UpdatePointer()
-    {
-    }
-
     IEnumerator TakePhone()
     {
-        UpdatePointer();
         phoneIsMoving = true;
         phoneBox.SetActive(true);
 
         DirectorController director = FindObjectOfType<DirectorController>();
 
-        //foreach(Quest quest in director.activeQuests)
-        //{
-        //    GameObject message = Instantiate(messagePrefab);
-        //    message.GetComponentInChildren<Text>().text = quest.Name;
-        //    message.transform.parent = content.transform;
-        //}
-
         phoneAnim.SetTrigger("TakePhone");
 
         yield return StartCoroutine(WaitUntilAnimationIsDone());
 
-        position = pointer.transform.position;
         phoneActive = true;
     }
 
@@ -98,7 +88,6 @@ public class PhoneController : MonoBehaviour
 
         yield return StartCoroutine(WaitUntilAnimationIsDone());
         phoneBox.SetActive(false);
-        
     }
 
     IEnumerator WaitUntilAnimationIsDone()

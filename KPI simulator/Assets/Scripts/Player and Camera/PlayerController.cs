@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour {
     private static bool ItExists;
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
-    public int dialogChoice;
-
+    public int[] discLevels;
 
     void Start ()
     {
@@ -21,6 +20,7 @@ public class PlayerController : MonoBehaviour {
         {
             ItExists = true;
             DontDestroyOnLoad(transform.gameObject);
+            discLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
         }
         else
         {

@@ -20,7 +20,7 @@ public class CommentController : MonoBehaviour
             dialogueEnabled = true;
             DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
             yield return StartCoroutine(DM.ShowDialogBox());
-            yield return StartCoroutine(DM.Talk(MonologueLines, null));
+            yield return StartCoroutine(DM.Talk(string.Empty, MonologueLines, null));
             DM.HideDialogBox();
             dialogueEnabled = false;
         }
