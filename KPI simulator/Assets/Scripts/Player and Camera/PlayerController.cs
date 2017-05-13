@@ -12,7 +12,23 @@ public class PlayerController : MonoBehaviour {
     private static bool ItExists;
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
+
+    public int currentStress;
+    public int maxStress;
+    public int level;
+    public int xp;
     public int[] discLevels;
+
+    public int unspentSkillPoints
+    {
+        get
+        {
+            int usedSkillPoint = 0;
+            foreach (int discLevel in discLevels)
+                usedSkillPoint += discLevel;
+            return level - usedSkillPoint;
+        }
+    }
 
     void Start ()
     {

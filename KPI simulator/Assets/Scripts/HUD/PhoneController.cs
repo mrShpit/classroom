@@ -8,6 +8,7 @@ public class PhoneController : MonoBehaviour
     public GameObject phoneBox;
     public bool phoneActive;
     public Image pointer;
+    public bool canUse;
 
     public Vector3 startPointerPos;
     private Vector2 currentPointerPos;
@@ -20,7 +21,8 @@ public class PhoneController : MonoBehaviour
     {
         currentPointerPos = new Vector2(0, 0);
         phoneAnim = GetComponent<Animator>();
-        
+
+        canUse = true;
         startPointerPos = pointer.rectTransform.position;
         phoneBox.SetActive(false);
         phoneActive = false;
@@ -29,17 +31,15 @@ public class PhoneController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	    if(Input.GetKeyDown(KeyCode.Tab) && phoneActive == false && !phoneIsMoving)
+        if (phoneIsMoving)
+            return;
+
+	    if(Input.GetKeyDown(KeyCode.Tab) && phoneActive == false && canUse)
         {
             StartCoroutine(TakePhone());
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab) && phoneActive == true && !phoneIsMoving)
-        {
-            StartCoroutine(HidePhone());
-        }
-
-        if(phoneActive == true && !phoneIsMoving)
+        if(phoneActive == true)
         {
             if(Input.GetKeyDown(KeyCode.DownArrow) && currentPointerPos.y < 2)
             {
@@ -62,6 +62,15 @@ public class PhoneController : MonoBehaviour
                 pointer.rectTransform.position = new Vector3(startPointerPos.x + currentPointerPos.x * 80, startPointerPos.y - currentPointerPos.y * 70);
             }
 
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                StartCoroutine(HidePhone());
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                StartApp(0, 0);
+            }
         }
     }
 
@@ -79,7 +88,7 @@ public class PhoneController : MonoBehaviour
         phoneActive = true;
     }
 
-    IEnumerator HidePhone()
+    public IEnumerator HidePhone()
     {
         phoneActive = false;
         phoneIsMoving = true;
@@ -99,5 +108,15 @@ public class PhoneController : MonoBehaviour
     public void AnimationComplete()
     {
         phoneIsMoving = false;
+    }
+
+    private void StartApp(int xPos, int yPos)
+    {
+        if(xPos == 0 && yPos == 0)
+        {
+            int[] disciplinesLevels = FindObjectOfType<PlayerController>().discLevels; // Сделать вариант для NPC
+            FindObjectOfType<SkillController>().ShowSkillTree(disciplinesLevels);
+        }
+
     }
 }
