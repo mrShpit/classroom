@@ -3,6 +3,25 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+    //Общие студентские данные
+    public string characterName;
+    public int currentStress;
+    public int maxStress;
+    public int level;
+    public int xp;
+    public int[] discipLevels;
+    public int unspentSkillPoints
+    {
+        get
+        {
+            int usedSkillPoint = 0;
+            foreach (int discLevel in discipLevels)
+                usedSkillPoint += discLevel;
+            return level - usedSkillPoint;
+        }
+    }
+
+    //Данные игрока
     public float speed;
     Rigidbody2D myBody;
     AnimatorController myAnim;
@@ -13,30 +32,13 @@ public class PlayerController : MonoBehaviour {
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
 
-    public int currentStress;
-    public int maxStress;
-    public int level;
-    public int xp;
-    public int[] discLevels;
-
-    public int unspentSkillPoints
-    {
-        get
-        {
-            int usedSkillPoint = 0;
-            foreach (int discLevel in discLevels)
-                usedSkillPoint += discLevel;
-            return level - usedSkillPoint;
-        }
-    }
-
     void Start ()
     {
         if (!ItExists)
         {
             ItExists = true;
             DontDestroyOnLoad(transform.gameObject);
-            discLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
+            discipLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
         }
         else
         {

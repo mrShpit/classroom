@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets;
 
-public class CharacterData : MonoBehaviour {
+public class NPC_CharacterData : MonoBehaviour {
 
     public string Name;
 

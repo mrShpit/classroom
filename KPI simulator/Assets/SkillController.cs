@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class SkillController : MonoBehaviour
 {
     public GameObject skillPanel;
@@ -40,13 +41,13 @@ public class SkillController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (skillPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             FindObjectOfType<PlayerController>().canMove = true;
             FindObjectOfType<PhoneController>().canUse = true;
             skillPanel.SetActive(false);
 
-            FindObjectOfType<PlayerController>().discLevels = CharacterDiciplinesLevels; // Сделать проверку на bool player/npc skills
+            FindObjectOfType<PlayerController>().discipLevels = CharacterDiciplinesLevels; // Сделать проверку на bool player/npc skills
         }
     }
 
@@ -67,10 +68,10 @@ public class SkillController : MonoBehaviour
 
     private void DisciplineButtonOnClick(int i)
     {
-            CharacterDiciplinesLevels[i]++;
-            characterUnspentSkillPoints -= allDisciplines[i].cost;
-            RefreshButtons();
-            skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
+        CharacterDiciplinesLevels[i]++;
+        characterUnspentSkillPoints -= allDisciplines[i].cost;
+        RefreshButtons();
+        skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
     }
 
     private void RefreshButtons()
@@ -204,7 +205,6 @@ public class SkillController : MonoBehaviour
 public class Discipline
 {
     public string discName;
-    public int maxLevel;
     public int cost;
     public string discDescription;
     public int treeLevel;
@@ -212,6 +212,13 @@ public class Discipline
     public int sumPointsNeeded;
     public Image icon;
     public List<Skill> disciplineSkills;
+    public int maxLevel
+    {
+        get
+        {
+            return disciplineSkills.Count;
+        }
+    }
 }
 
 [System.Serializable]

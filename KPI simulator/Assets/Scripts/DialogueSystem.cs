@@ -6,10 +6,10 @@ using System.Linq;
 
 public class DialogueSystem : MonoBehaviour
 {
-    CharacterData speaker;
+    NPC_CharacterData speaker;
     public GameObject floatingText;
 
-    public IEnumerator NPD_Dialogue(CharacterData SpeakingCharacter)
+    public IEnumerator NPD_Dialogue(NPC_CharacterData SpeakingCharacter)
     {
         speaker = SpeakingCharacter;
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();

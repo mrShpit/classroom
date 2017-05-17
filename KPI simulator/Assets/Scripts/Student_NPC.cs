@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using Assets;
 using System.Linq;
 
-
-public class StudentData : CharacterData
+public class Student_NPC : NPC_CharacterData
 {
     // Use this for initialization
     void Start ()
@@ -14,12 +13,6 @@ public class StudentData : CharacterData
             voice = GetComponent<AudioSource>();
     }
 	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
-
     IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
         PhoneController phone = FindObjectOfType<PhoneController>();
@@ -30,10 +23,8 @@ public class StudentData : CharacterData
         if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E) && !dialogueEnabled && activeDialogue != null && !phone.phoneActive)
         {
             dialogueEnabled = true;
-            DialogueSystem dialogue = GetComponent<DialogueSystem>();
-            yield return StartCoroutine(dialogue.NPD_Dialogue(this));
+            yield return StartCoroutine(GetComponent<DialogueSystem>().NPD_Dialogue(this));
             dialogueEnabled = false;
         }
     }
-    
 }

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 public class ExamProcess : MonoBehaviour
 {
-    public GameObject choiceBox;
-    public Text CharacterName;
-    public Text Level;
-    public Text StressLevel;
+    public GameObject ExamChoiceBox;
+    public Text CharacterNameTB;
+    public Text LevelTB;
+    public Text StressLevelTB;
     public bool ExamIsRunning;
     public GameObject chair;
 
@@ -16,16 +16,10 @@ public class ExamProcess : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        choiceBox.SetActive(false);
+        ExamChoiceBox.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public IEnumerator StartExam(TeacherData teacher, List<CharacterData> allyStidents)
+    public IEnumerator StartExam(TeacherData teacher, List<NPC_CharacterData> allyStidents)
     {
         ExamIsRunning = true;
 
@@ -43,17 +37,24 @@ public class ExamProcess : MonoBehaviour
 
 
 
-
         ExamIsRunning = false;
+    }
+
+    void FillExamChoiceBox(PlayerController player) // Будет перегрузка для любого студента
+    {
+        CharacterNameTB.text = player.characterName;
+        LevelTB.text = player.level.ToString();
+        StressLevelTB.text = player.currentStress + "/" + player.maxStress;
+
     }
 
     public void ShowChoiceBox()
     {
-        choiceBox.SetActive(true);
+        ExamChoiceBox.SetActive(true);
     }
 
     public void HideChoiceBox()
     {
-        choiceBox.SetActive(false);
+        ExamChoiceBox.SetActive(false);
     }
 }

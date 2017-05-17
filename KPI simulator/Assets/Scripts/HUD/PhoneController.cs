@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using Assets;
 
+[ExecuteInEditMode]
 public class PhoneController : MonoBehaviour
 {
     public GameObject phoneBox;
@@ -114,9 +115,8 @@ public class PhoneController : MonoBehaviour
     {
         if(xPos == 0 && yPos == 0)
         {
-            int[] disciplinesLevels = FindObjectOfType<PlayerController>().discLevels; // Сделать вариант для NPC
+            int[] disciplinesLevels = FindObjectOfType<PlayerController>().discipLevels; // Сделать вариант для NPC
             FindObjectOfType<SkillController>().ShowSkillTree(disciplinesLevels);
         }
-
     }
 }
