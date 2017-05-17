@@ -1,33 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-
-    //Общие студентские данные
-    public string characterName;
-    public int currentStress;
-    public int maxStress;
-    public int level;
-    public int xp;
-    public int[] discipLevels;
-    public int unspentSkillPoints
-    {
-        get
-        {
-            int usedSkillPoint = 0;
-            foreach (int discLevel in discipLevels)
-                usedSkillPoint += discLevel;
-            return level - usedSkillPoint;
-        }
-    }
-
-    //Данные игрока
+public class PlayerController : CharacterData
+{
     public float speed;
     Rigidbody2D myBody;
     AnimatorController myAnim;
     float hInput;
     float vInput;
-    public bool canMove = true;
+    public bool canMove
+    {
+        get
+        {
+            if (FindObjectOfType<DialogueBoxManager>().talkActive || FindObjectOfType<ExamProcess>().ExamIsRunning ||
+                FindObjectOfType<SkillController>().skillPanel.activeInHierarchy || FindObjectOfType<DialogueBoxManager>().ChoiceMode)
+                return false;
+            else
+                return true;
+        }
+    }
     private static bool ItExists;
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
@@ -38,7 +29,6 @@ public class PlayerController : MonoBehaviour {
         {
             ItExists = true;
             DontDestroyOnLoad(transform.gameObject);
-            discipLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
         }
         else
         {

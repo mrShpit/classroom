@@ -13,7 +13,6 @@ public class SkillController : MonoBehaviour
     public Text commentText;
     public Text skillPointsLeftText;
 
-
     private int[] CharacterDiciplinesLevels;
     private int characterUnspentSkillPoints;
     bool fadingAnimation = false;
@@ -43,22 +42,22 @@ public class SkillController : MonoBehaviour
 
         if (skillPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
-            FindObjectOfType<PlayerController>().canMove = true;
+            //FindObjectOfType<PlayerController>().canMove = true;
             FindObjectOfType<PhoneController>().canUse = true;
             skillPanel.SetActive(false);
 
-            FindObjectOfType<PlayerController>().discipLevels = CharacterDiciplinesLevels; // Сделать проверку на bool player/npc skills
+            FindObjectOfType<PlayerController>().GetComponent<StudentData>().discipLevels = CharacterDiciplinesLevels; // Сделать проверку на bool player/npc skills
         }
     }
 
     public void ShowSkillTree(int[] upgradeLevels) // потом можно будет передать bool касательно данных игрока/npc
     {
         fadingAnimation = true;
-        FindObjectOfType<PlayerController>().canMove = false;
+        //FindObjectOfType<PlayerController>().canMove = false;
         StartCoroutine(FindObjectOfType<PhoneController>().HidePhone());
         FindObjectOfType<PhoneController>().canUse = false;
 
-        characterUnspentSkillPoints = FindObjectOfType<PlayerController>().unspentSkillPoints; //Сделать зависимость от player/npc
+        characterUnspentSkillPoints = FindObjectOfType<PlayerController>().GetComponent<StudentData>().unspentSkillPoints; //Сделать зависимость от player/npc
         skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
 
         CharacterDiciplinesLevels = upgradeLevels;

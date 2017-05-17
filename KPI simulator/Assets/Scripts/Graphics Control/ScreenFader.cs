@@ -4,7 +4,7 @@ using System.Collections;
 public class ScreenFader : MonoBehaviour
 {
     Animator fadeAnim;
-    private bool isFading = false;
+    public bool isFading = false;
 
     // Use this for initialization
     void Start()

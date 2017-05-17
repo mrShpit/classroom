@@ -91,13 +91,13 @@ public class PhoneController : MonoBehaviour
 
     public IEnumerator HidePhone()
     {
-        phoneActive = false;
         phoneIsMoving = true;
 
         phoneAnim.SetTrigger("HidePhone");
 
         yield return StartCoroutine(WaitUntilAnimationIsDone());
         phoneBox.SetActive(false);
+        phoneActive = false;
     }
 
     IEnumerator WaitUntilAnimationIsDone()
@@ -115,7 +115,7 @@ public class PhoneController : MonoBehaviour
     {
         if(xPos == 0 && yPos == 0)
         {
-            int[] disciplinesLevels = FindObjectOfType<PlayerController>().discipLevels; // Сделать вариант для NPC
+            int[] disciplinesLevels = FindObjectOfType<PlayerController>().GetComponent<StudentData>().discipLevels; // Сделать вариант для NPC
             FindObjectOfType<SkillController>().ShowSkillTree(disciplinesLevels);
         }
     }

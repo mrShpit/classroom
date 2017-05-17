@@ -6,25 +6,36 @@ using System.Linq;
 
 public class DialogueSystem : MonoBehaviour
 {
-    NPC_CharacterData speaker;
     public GameObject floatingText;
+    private NPC_Character speaker;
 
-    public IEnumerator NPD_Dialogue(NPC_CharacterData SpeakingCharacter)
+    [SerializeField]
+    public List<Dialogue> allDialogues;
+
+    public bool dialogueEnabled { get; set; }
+    public int currentNodeId { get; set; }
+    public Dialogue activeDialogue { get; set; }
+
+    void Start()
     {
-        speaker = SpeakingCharacter;
+        speaker = this.GetComponent<NPC_Character>();
+    }
+
+    public IEnumerator NPD_Dialogue(NPC_Character SpeakingCharacter)
+    {
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
         yield return StartCoroutine(DM.ShowDialogBox());
         int targetNodeID = 0;
 
-        if (speaker.activeDialogue.passTheQuest != string.Empty)
+        if (activeDialogue.passTheQuest != string.Empty)
         {
-            PassTheQuestAndGetReward(speaker.activeDialogue.passTheQuest);
+            PassTheQuestAndGetReward(activeDialogue.passTheQuest);
         }
 
         while (targetNodeID != -1)
         {
-            DialogueNode currentNode = speaker.activeDialogue.dialogueNodes[targetNodeID];
-            yield return StartCoroutine(DM.Talk(speaker.Name, currentNode.nodeText, speaker.voice));
+            DialogueNode currentNode = activeDialogue.dialogueNodes[targetNodeID];
+            yield return StartCoroutine(DM.Talk(speaker.characterName, currentNode.nodeText, speaker.voice));
 
             if (currentNode.nodeChoices.Count == 0)
             {
@@ -51,16 +62,16 @@ public class DialogueSystem : MonoBehaviour
 
                 if (choiceVariants[chosen].answerText.Count != 0)
                 {
-                    yield return StartCoroutine(DM.Talk(speaker.Name, choiceVariants[chosen].answerText, speaker.voice));
+                    yield return StartCoroutine(DM.Talk(speaker.characterName, choiceVariants[chosen].answerText, speaker.voice));
                 }
 
                 targetNodeID = choiceVariants[chosen].targetNode;
             }
         }
 
-        if (speaker.activeDialogue.OnlyOneUse == true)
+        if (activeDialogue.OnlyOneUse == true)
         {
-            speaker.activeDialogue.Used = true;
+            activeDialogue.Used = true;
         }
 
         DM.HideDialogBox();
@@ -139,5 +150,35 @@ public class DialogueSystem : MonoBehaviour
 
         RaiseFlags(quest.worldConsequences, quest.charConsequences);
 
+    }
+
+
+    public void ChooseActiveDialogue()
+    {
+        activeDialogue = null;
+        foreach (Dialogue dialogue_variant in allDialogues)
+        {
+            if (dialogue_variant.Used == true)
+                continue;
+
+            bool CharFlagsOK = Flag.FlagCheck(dialogue_variant.conditionCharFlags, speaker.Character_Flags);
+            bool WorldFlagsOK = Flag.FlagCheck(dialogue_variant.conditionWorldFlags, FindObjectOfType<DirectorController>().WorldFlags);
+            bool AllNeededQuestDone = true;
+            foreach (string questName in dialogue_variant.questsPassedNeeded)
+            {
+                if (!FindObjectOfType<DirectorController>().CheckQuestPassed(questName))
+                {
+                    AllNeededQuestDone = false;
+                    break;
+                }
+            }
+
+            if (WorldFlagsOK && CharFlagsOK && AllNeededQuestDone && dialogue_variant.RepNeeded <= speaker.Reputation)
+            {
+                activeDialogue = dialogue_variant; //Сделать много вариантов диалога на выбора
+                break;
+            }
+
+        }
     }
 }

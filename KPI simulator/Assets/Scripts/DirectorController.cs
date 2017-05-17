@@ -11,7 +11,6 @@ public class DirectorController : MonoBehaviour
     public List<Quest> activeQuests;
     public List<Quest> finishedQuests;
     public List<Quest> passedQuests;
-    public GameObject chair;
 
     // Use this for initialization
     void Start ()
@@ -43,7 +42,7 @@ public class DirectorController : MonoBehaviour
             return false;
     }
 
-    public void CheckQuestFinished()
+    void CheckQuestFinished()
     {
         Quest questFinished = null;
         foreach (Quest quest in this.activeQuests)
@@ -57,9 +56,11 @@ public class DirectorController : MonoBehaviour
 
         if (questFinished != null)
         {
-            Debug.Log("here");
             this.activeQuests.Remove(questFinished);
             this.finishedQuests.Add(questFinished);
         }
     }
+
+
+
 }

@@ -63,10 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CharacterData.cs" />
     <Compile Include="Assets\Classes\Dialogue.cs" />
     <Compile Include="Assets\Classes\Quest.cs" />
     <Compile Include="Assets\GUI\LetterSpacing.cs" />
+    <Compile Include="Assets\Scripts\CharacterData.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DirectorController.cs" />
     <Compile Include="Assets\Scripts\Graphics Control\DepthSortByY.cs" />
@@ -79,14 +79,16 @@
     <Compile Include="Assets\Scripts\HUD\HUD_controller.cs" />
     <Compile Include="Assets\Scripts\HUD\PhoneController.cs" />
     <Compile Include="Assets\Scripts\LocationObjects\TransferPointController.cs" />
-    <Compile Include="Assets\Scripts\NPC_CharacterData.cs" />
+    <Compile Include="Assets\Scripts\NPC_Character.cs" />
+    <Compile Include="Assets\Scripts\NPC_StudentBehavior.cs" />
+    <Compile Include="Assets\Scripts\NPC_TeacherBehavior.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\AnimatorController.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player and Camera\PlayerTriggerController.cs" />
-    <Compile Include="Assets\Scripts\Student_NPC.cs" />
+    <Compile Include="Assets\Scripts\SkillController.cs" />
+    <Compile Include="Assets\Scripts\StudentData.cs" />
     <Compile Include="Assets\Scripts\TeacherData.cs" />
-    <Compile Include="Assets\SkillController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
