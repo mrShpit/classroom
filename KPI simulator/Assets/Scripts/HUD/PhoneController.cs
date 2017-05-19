@@ -70,7 +70,7 @@ public class PhoneController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                StartApp(0, 0);
+                StartApp(currentPointerPos.x, currentPointerPos.y);
             }
         }
     }
@@ -111,12 +111,16 @@ public class PhoneController : MonoBehaviour
         phoneIsMoving = false;
     }
 
-    private void StartApp(int xPos, int yPos)
+    private void StartApp(float xPos, float yPos)
     {
-        if(xPos == 0 && yPos == 0)
+        if (xPos == 0 && yPos == 0)
         {
             int[] disciplinesLevels = FindObjectOfType<PlayerController>().GetComponent<StudentData>().discipLevels; // Сделать вариант для NPC
             FindObjectOfType<SkillController>().ShowSkillTree(disciplinesLevels);
+        }
+        else if (xPos == 1 && yPos == 2)
+        {
+            Application.Quit();
         }
     }
 }

@@ -25,7 +25,7 @@ public class NPC_TeacherBehavior : NPC_Character
 
             if (Flag.FlagCheck(FindObjectOfType<DirectorController>().WorldFlags, new Flag("StartExamMode", 1)))
             {
-                StartCoroutine(FindObjectOfType<ExamProcess>().StartExam(this, 
+                StartCoroutine(FindObjectOfType<ExamProcess>().StartExam(this.GetComponent<TeacherData>(), 
                     new List<StudentData>() { FindObjectOfType<PlayerController>().GetComponent<StudentData>()})); //Пока-что без напарников
             }
 

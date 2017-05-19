@@ -25,4 +25,5 @@ public class CommentController : MonoBehaviour
             dialogueEnabled = false;
         }
     }
+
 }

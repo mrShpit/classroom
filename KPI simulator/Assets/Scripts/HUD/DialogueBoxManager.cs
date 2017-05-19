@@ -63,6 +63,7 @@ public class DialogueBoxManager : MonoBehaviour
         {
             if(currentChoice > 0)
             {
+                GetComponents<AudioSource>()[0].Play();
                 currentChoice--;
                 UpdateChoice();
             }
@@ -71,12 +72,14 @@ public class DialogueBoxManager : MonoBehaviour
         {
             if(currentChoice < ChoiceList.Count - 1)
             {
+                GetComponents<AudioSource>()[0].Play();
                 currentChoice++;
                 UpdateChoice();
             }
         }
         if (ChoiceMode && Input.GetKeyDown(KeyCode.Return) && !smartphone.phoneActive) //Сделать выбор
         {
+            GetComponents<AudioSource>()[1].Play();
             ChoiceMode = false;
             spaceText.text = "Press Space";
         }
@@ -110,16 +113,31 @@ public class DialogueBoxManager : MonoBehaviour
 
             while (talkActive)
                 yield return null;
-    }
+    } //Человек говорит несколько фраз
 
-    public IEnumerator Talk(string speakerName, string textLine, AudioSource audio)
+    public IEnumerator Talk(List<string> comment)
     {
         talkActive = true;
 
         currentTextLine = 0;
-        DialogLines = new List<string>() { textLine }; //Определить текст для печати
-        speaker = speakerName;
-        voiceBeep = audio;
+        DialogLines = comment;
+        speaker = "";
+        voiceBeep = null;
+
+        StartCoroutine(TypeMessage(DialogLines[0]));
+
+        while (talkActive)
+            yield return null;
+    } //Комментарий на несолько фраз
+
+    public IEnumerator Talk(string comment) //Однострочный комментарий
+    {
+        talkActive = true;
+
+        currentTextLine = 0;
+        DialogLines = new List<string>() { comment };
+        speaker = "";
+        voiceBeep = null;
 
         StartCoroutine(TypeMessage(DialogLines[0]));
 
@@ -184,8 +202,8 @@ public class DialogueBoxManager : MonoBehaviour
         PlayerController PC = FindObjectOfType<PlayerController>();
         //PC.canMove = true;
         ChoiceMode = false;
-        talkActive = false;
         dBoxAnim.SetTrigger("BoxOut");
+
     }
 
     public void DestroyDialogBox()

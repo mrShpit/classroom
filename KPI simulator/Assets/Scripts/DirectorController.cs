@@ -31,6 +31,8 @@ public class DirectorController : MonoBehaviour
 	void Update ()
     {
         CheckQuestFinished();
+        if (Input.GetKeyDown(KeyCode.Backspace))
+            Application.Quit();
     }
 
     public bool CheckQuestPassed(string name)

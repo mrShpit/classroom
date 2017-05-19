@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [ExecuteInEditMode]
 public class SkillController : MonoBehaviour
 {
     public GameObject skillPanel;
     public List<Discipline> allDisciplines;
+    public List<Skill> defaultSkills;
     public GameObject FirstSkillNodeGrid, SecondSkillNodeGrid, ThirdSkillNodeGrid;
     public Button disciplineButton;
     public Text commentText;
@@ -52,6 +54,8 @@ public class SkillController : MonoBehaviour
 
     public void ShowSkillTree(int[] upgradeLevels) // потом можно будет передать bool касательно данных игрока/npc
     {
+        this.gameObject.transform.SetAsLastSibling(); //Сделать панель активной для EventSystem
+
         fadingAnimation = true;
         //FindObjectOfType<PlayerController>().canMove = false;
         StartCoroutine(FindObjectOfType<PhoneController>().HidePhone());
@@ -64,15 +68,7 @@ public class SkillController : MonoBehaviour
         skillPanel.SetActive(true);
         RefreshButtons();
     }
-
-    private void DisciplineButtonOnClick(int i)
-    {
-        CharacterDiciplinesLevels[i]++;
-        characterUnspentSkillPoints -= allDisciplines[i].cost;
-        RefreshButtons();
-        skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
-    }
-
+    
     private void RefreshButtons()
     {
         ClearGrid(FirstSkillNodeGrid);
@@ -83,21 +79,18 @@ public class SkillController : MonoBehaviour
         {
             Button newButton = (Button)Instantiate(disciplineButton);
 
-
-            Debug.Log(allDisciplines.Count);
-
             Text[] buttonText = newButton.GetComponentsInChildren<Text>();
             buttonText[0].text = allDisciplines[i].discName;
-            buttonText[1].text = CharacterDiciplinesLevels[i].ToString();
+            buttonText[1].text = CharacterDiciplinesLevels[i] + "/" + allDisciplines[i].disciplineSkills.Count;
             int index = i;
 
-            bool avaible = true;
+            bool upgradeAvaible = true;
             int sumPointsUsed = 0;
             foreach(int discNum in allDisciplines[i].discNeeded)
             {
                 if(CharacterDiciplinesLevels[discNum] == 0)
                 {
-                    avaible = false;
+                    upgradeAvaible = false;
                     break;
                 }
                 else
@@ -107,9 +100,9 @@ public class SkillController : MonoBehaviour
             }
 
             if (sumPointsUsed < allDisciplines[i].sumPointsNeeded && allDisciplines[i].discNeeded.Length != 0)
-                avaible = false;
+                upgradeAvaible = false;
 
-            if(avaible && CharacterDiciplinesLevels[i] < allDisciplines[i].maxLevel && 
+            if(upgradeAvaible && CharacterDiciplinesLevels[i] < allDisciplines[i].maxLevel && 
                 characterUnspentSkillPoints >= allDisciplines[i].cost) //Навык можно прокачать
             {
                 var colors = newButton.GetComponent<Button>().colors;
@@ -120,7 +113,7 @@ public class SkillController : MonoBehaviour
 
                 newButton.GetComponent<Button>().onClick.AddListener(delegate { DisciplineButtonOnClick(index); });
             }
-            else if (avaible && CharacterDiciplinesLevels[i] < allDisciplines[i].maxLevel && 
+            else if (upgradeAvaible && CharacterDiciplinesLevels[i] < allDisciplines[i].maxLevel && 
                 characterUnspentSkillPoints < allDisciplines[i].cost) //Навык можно прокачать но не хватает очков
             {
                 var colors = newButton.GetComponent<Button>().colors;
@@ -129,7 +122,7 @@ public class SkillController : MonoBehaviour
                 colors.pressedColor = Color.red;
                 newButton.GetComponent<Button>().colors = colors;
             }
-            else if (avaible && CharacterDiciplinesLevels[i] >= allDisciplines[i].maxLevel) //Навык прокачан до конца
+            else if (upgradeAvaible && CharacterDiciplinesLevels[i] >= allDisciplines[i].maxLevel) //Навык прокачан до конца
             {
                 var colors = newButton.GetComponent<Button>().colors;
                 colors.normalColor = Color.green;
@@ -145,6 +138,19 @@ public class SkillController : MonoBehaviour
                 colors.pressedColor = Color.gray;
                 newButton.GetComponent<Button>().colors = colors;
             }
+
+            EventTrigger buttonTrigger = newButton.GetComponent<EventTrigger>();
+            EventTrigger.Entry moveOn = new EventTrigger.Entry();
+            moveOn.eventID = EventTriggerType.PointerEnter;
+            moveOn.callback = new EventTrigger.TriggerEvent();
+            moveOn.callback.AddListener(delegate { ShowComment(index); });
+            buttonTrigger.triggers.Add(moveOn);
+
+            EventTrigger.Entry moveOut = new EventTrigger.Entry();
+            moveOut.eventID = EventTriggerType.PointerExit;
+            moveOut.callback = new EventTrigger.TriggerEvent(); ;
+            moveOut.callback.AddListener(delegate { ClearComment(); });
+            buttonTrigger.triggers.Add(moveOut);
 
             switch (allDisciplines[i].treeLevel)
             {
@@ -165,6 +171,25 @@ public class SkillController : MonoBehaviour
         //Мне приходиться делать этот бред потому-что из-за fadeDuration кнопка некоторое время после создания 
         //остаеться черной, что приводит к перемигиванию, когда ее цвет обновиться. В итоге надо сначала поставить fadeDuration = 0,
         //поменять цвет кнопок, поместить их на экран и затем сменить их fadeDuration на нормальный
+    }
+    
+    private void DisciplineButtonOnClick(int i)
+    {
+        this.GetComponent<AudioSource>().Play();
+        CharacterDiciplinesLevels[i]++;
+        characterUnspentSkillPoints -= allDisciplines[i].cost;
+        RefreshButtons();
+        skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
+    }
+
+    private void ShowComment(int discIndex)
+    {
+       commentText.text = allDisciplines[discIndex].discDescription;
+    }
+
+    private void ClearComment()
+    {
+        commentText.text = string.Empty;
     }
 
     private void setButtonsFadeDuration(float dur)
@@ -204,6 +229,8 @@ public class SkillController : MonoBehaviour
 public class Discipline
 {
     public string discName;
+    public enum subject { Math, Phys, Prog, Tech, Engi, No };
+    public subject Subject;
     public int cost;
     public string discDescription;
     public int treeLevel;
@@ -224,11 +251,11 @@ public class Discipline
 public class Skill
 {
     public string Name;
-    public int id;
     public string comment;
-    public int levelNeeded;
-    public enum target { self, teacher};
-    public enum type { think, speak, act, passive};
+    public enum SkillTarget { self, teacher};
+    public SkillTarget skillTarger;
+    public enum SkillType { empty, think, speak, act, passive };
+    public SkillType skillType;
     public float bonus;
     public int effectCode;
 }
