@@ -24,7 +24,7 @@ public class StudentData : MonoBehaviour
         discipLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
     }
 
-    public float AverageSubjectSkill(List<Discipline.subject> neededSubjects)
+    public float AverageSubjectSkill(List<Discipline.subject> neededSubjects) //Out of ten
     {
         List<Discipline> allDisciplines = FindObjectOfType<SkillController>().allDisciplines;
         float average = 0;

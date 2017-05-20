@@ -86,20 +86,6 @@ public class DialogueBoxManager : MonoBehaviour
 
     }
 
-    public IEnumerator MakeChoice(string comment, List<string> choicesList)
-    {
-        spaceText.text = "";
-        ChoiceList = choicesList;
-        ChoiceMode = true;
-        choiceComment = comment;
-        currentChoice = 0;
-
-        UpdateChoice();
-
-        while (ChoiceMode)
-            yield return null;
-    }
-
     public IEnumerator Talk(string speakerName, List<string> text, AudioSource audio)
     {
             talkActive = true;
@@ -115,12 +101,30 @@ public class DialogueBoxManager : MonoBehaviour
                 yield return null;
     } //Человек говорит несколько фраз
 
-    public IEnumerator Talk(List<string> comment)
+    public IEnumerator Talk(string speakerName, string [] text, AudioSource audio)
     {
         talkActive = true;
 
         currentTextLine = 0;
-        DialogLines = comment;
+        DialogLines = new List<string>();
+        DialogLines.AddRange(text);
+        speaker = speakerName;
+        voiceBeep = audio;
+
+        StartCoroutine(TypeMessage(DialogLines[0]));
+
+        while (talkActive)
+            yield return null;
+    } 
+
+    public IEnumerator Talk(string[] comment)
+    {
+        talkActive = true;
+
+        currentTextLine = 0;
+        DialogLines = new List<string>();
+        foreach (string line in comment)
+            DialogLines.Add(line);
         speaker = "";
         voiceBeep = null;
 
@@ -142,6 +146,20 @@ public class DialogueBoxManager : MonoBehaviour
         StartCoroutine(TypeMessage(DialogLines[0]));
 
         while (talkActive)
+            yield return null;
+    }
+
+    public IEnumerator MakeChoice(string comment, List<string> choicesList)
+    {
+        spaceText.text = "";
+        ChoiceList = choicesList;
+        ChoiceMode = true;
+        choiceComment = comment;
+        currentChoice = 0;
+
+        UpdateChoice();
+
+        while (ChoiceMode)
             yield return null;
     }
 

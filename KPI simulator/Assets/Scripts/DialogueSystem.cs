@@ -152,7 +152,6 @@ public class DialogueSystem : MonoBehaviour
 
     }
 
-
     public void ChooseActiveDialogue()
     {
         activeDialogue = null;

@@ -17,7 +17,7 @@ public class SkillController : MonoBehaviour
 
     private int[] CharacterDiciplinesLevels;
     private int characterUnspentSkillPoints;
-    bool fadingAnimation = false;
+    bool fadingAnimationIn = false;
 
 	// Use this for initialization
 	void Start ()
@@ -28,17 +28,25 @@ public class SkillController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(fadingAnimation)
+        if(fadingAnimationIn)
         {
-            if(skillPanel.GetComponent<Image>().color.a < 0.5)
+            if(skillPanel.GetComponent<Image>().color.a >= 0.5)
+            {
+                Color color = skillPanel.GetComponent<Image>().color;
+                color.a = 0;
+                skillPanel.GetComponent<Image>().color = color;
+            }
+
+            if (skillPanel.GetComponent<Image>().color.a < 0.5)
             {
                 Color color = skillPanel.GetComponent<Image>().color;
                 color.a += 0.02f;
                 skillPanel.GetComponent<Image>().color = color;
             }
-            else
+
+            if (skillPanel.GetComponent<Image>().color.a >= 0.5)
             {
-                fadingAnimation = false;
+                fadingAnimationIn = false;
             }
         }
 
@@ -56,7 +64,7 @@ public class SkillController : MonoBehaviour
     {
         this.gameObject.transform.SetAsLastSibling(); //Сделать панель активной для EventSystem
 
-        fadingAnimation = true;
+        fadingAnimationIn = true;
         //FindObjectOfType<PlayerController>().canMove = false;
         StartCoroutine(FindObjectOfType<PhoneController>().HidePhone());
         FindObjectOfType<PhoneController>().canUse = false;
@@ -71,9 +79,9 @@ public class SkillController : MonoBehaviour
     
     private void RefreshButtons()
     {
-        ClearGrid(FirstSkillNodeGrid);
-        ClearGrid(SecondSkillNodeGrid);
-        ClearGrid(ThirdSkillNodeGrid);
+        clearGrid(FirstSkillNodeGrid);
+        clearGrid(SecondSkillNodeGrid);
+        clearGrid(ThirdSkillNodeGrid);
 
         for (int i = 0; i < allDisciplines.Count; i++)
         {
@@ -184,7 +192,57 @@ public class SkillController : MonoBehaviour
 
     private void ShowComment(int discIndex)
     {
-       commentText.text = allDisciplines[discIndex].discDescription;
+        commentText.text = allDisciplines[discIndex].discDescription;
+        int nextSkillIndx = CharacterDiciplinesLevels[discIndex];
+
+        bool upgradeAvaible = true;
+        int sumPointsUsed = 0;
+
+        if (CharacterDiciplinesLevels[discIndex] == allDisciplines[discIndex].disciplineSkills.Count &&
+            allDisciplines[discIndex].disciplineSkills.Count != 0)
+        {
+            commentText.text += "\nЭта дисциплина целиком изучена";
+            return;
+        }
+        
+        foreach (int discNum in allDisciplines[discIndex].discNeeded) //Проверка на доступность
+        {
+            if (CharacterDiciplinesLevels[discNum] == 0)
+            {
+                upgradeAvaible = false;
+                break;
+            }
+            else
+            {
+                sumPointsUsed += CharacterDiciplinesLevels[discNum];
+            }
+        }
+        if (sumPointsUsed < allDisciplines[discIndex].sumPointsNeeded && allDisciplines[discIndex].discNeeded.Length != 0 )
+            upgradeAvaible = false;
+
+        if (upgradeAvaible == true)
+        {
+            if (allDisciplines[discIndex].disciplineSkills.Count != 0 &&
+                allDisciplines[discIndex].disciplineSkills[nextSkillIndx].Name != string.Empty )
+            {
+                commentText.text += "\nСледующий навык: " + allDisciplines[discIndex].disciplineSkills[nextSkillIndx].Name + ". ";
+                commentText.text += allDisciplines[discIndex].disciplineSkills[nextSkillIndx].comment;
+            }
+            else
+                commentText.text += "\nСледующий навык: Пока-что не предусмотрен.";
+        }
+        else
+        {
+            string commentTextLine = string.Empty;
+            commentTextLine += "\nЭта дисциплина заблокирована. Чтобы открыть ее, влейте " + allDisciplines[discIndex].sumPointsNeeded +
+                " очков навыков в следующие дисциплины: ";
+            foreach (int discNeeded in allDisciplines[discIndex].discNeeded)
+            {
+                commentTextLine += (allDisciplines[discNeeded].discName + ", ");
+            }
+
+            commentText.text += ( commentTextLine.Substring(0, commentTextLine.Length - 2) + "." );
+        }
     }
 
     private void ClearComment()
@@ -214,7 +272,7 @@ public class SkillController : MonoBehaviour
         }
     }
 
-    private void ClearGrid(GameObject grid)
+    private void clearGrid(GameObject grid)
     {
         int childs = grid.transform.childCount;
         for (int i = childs - 1; i >= 0; i--)
@@ -223,7 +281,6 @@ public class SkillController : MonoBehaviour
         }
     }
 }
-
 
 [System.Serializable]
 public class Discipline
