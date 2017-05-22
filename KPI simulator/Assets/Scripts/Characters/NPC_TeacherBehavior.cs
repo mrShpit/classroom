@@ -8,7 +8,6 @@ public class NPC_TeacherBehavior : NPC_Character
 {
     IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
-
         if (!dialogueSystem.dialogueEnabled)
             dialogueSystem.ChooseActiveDialogue();
 
@@ -20,7 +19,7 @@ public class NPC_TeacherBehavior : NPC_Character
                 yield break;
 
             dialogueSystem.dialogueEnabled = true;
-            yield return StartCoroutine(GetComponent<DialogueSystem>().NPD_Dialogue(this)); //Запустить активный диалог персонажа
+            yield return StartCoroutine(GetComponent<DialogueSystem>().NPC_Dialogue()); //Запустить активный диалог персонажа
             dialogueSystem.dialogueEnabled = false;
 
             if (Flag.FlagCheck(FindObjectOfType<DirectorController>().WorldFlags, new Flag("StartExamMode", 1)))

@@ -114,6 +114,7 @@
     <None Include="Assets\Text\Catherine.txt" />
     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Imported\classroom1.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\Imported\classroom2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\corridor1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\untitled.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\License.txt" />

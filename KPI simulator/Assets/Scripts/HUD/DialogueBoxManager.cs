@@ -11,6 +11,7 @@ public class DialogueBoxManager : MonoBehaviour
     public Text spaceText;
     public bool talkActive;
     public int currentChoice;
+    public bool tutorial;
 
     public bool ChoiceMode { get; set; }
     private int currentTextLine = 0;
@@ -88,17 +89,18 @@ public class DialogueBoxManager : MonoBehaviour
 
     public IEnumerator Talk(string speakerName, List<string> text, AudioSource audio)
     {
-            talkActive = true;
+        talkActive = true;
 
-            currentTextLine = 0;
-            DialogLines = text; //Определить текст для печати
-            speaker = speakerName;
-            voiceBeep = audio;
+        currentTextLine = 0;
+        DialogLines = text; //Определить текст для печати
+        speaker = speakerName;
+        voiceBeep = audio;
 
-            StartCoroutine(TypeMessage(DialogLines[0]));
+        StartCoroutine(TypeMessage(DialogLines[0]));
 
-            while (talkActive)
-                yield return null;
+        while (talkActive)
+            yield return null;
+
     } //Человек говорит несколько фраз
 
     public IEnumerator Talk(string speakerName, string [] text, AudioSource audio)
@@ -134,7 +136,7 @@ public class DialogueBoxManager : MonoBehaviour
             yield return null;
     } //Комментарий на несолько фраз
 
-    public IEnumerator Talk(string comment) //Однострочный комментарий
+    public IEnumerator Talk(string comment) //Однострочный комментарийs
     {
         talkActive = true;
 
@@ -165,6 +167,11 @@ public class DialogueBoxManager : MonoBehaviour
 
     private IEnumerator TypeMessage(string textLine)
     {
+        if (tutorial)
+            dText.color = Color.yellow;
+        else
+            dText.color = Color.white;
+
         IsTyping = true;
         SkipTyping = false;
         int letter = 0;
@@ -203,6 +210,8 @@ public class DialogueBoxManager : MonoBehaviour
 
     public IEnumerator ShowDialogBox()
     {
+        talkActive = true;
+        
         PlayerController PC = FindObjectOfType<PlayerController>();
 
         dBox.SetActive(true); //Сделать видимым

@@ -222,11 +222,16 @@ public class SkillController : MonoBehaviour
 
         if (upgradeAvaible == true)
         {
-            if (allDisciplines[discIndex].disciplineSkills.Count != 0 &&
-                allDisciplines[discIndex].disciplineSkills[nextSkillIndx].Name != string.Empty )
+            Skill nextSkill = allDisciplines[discIndex].disciplineSkills[nextSkillIndx];
+
+            if (allDisciplines[discIndex].disciplineSkills.Count != 0 && nextSkill.Name != string.Empty )
             {
                 commentText.text += "\nСледующий навык: " + allDisciplines[discIndex].disciplineSkills[nextSkillIndx].Name + ". ";
-                commentText.text += allDisciplines[discIndex].disciplineSkills[nextSkillIndx].comment;
+
+                if (nextSkill.skillType != Skill.SkillType.passive && nextSkill.skillType != Skill.SkillType.empty)
+                    commentText.text += "Навык для режима экзамена. " + allDisciplines[discIndex].disciplineSkills[nextSkillIndx].comment;
+                else
+                    commentText.text += allDisciplines[discIndex].disciplineSkills[nextSkillIndx].comment;
             }
             else
                 commentText.text += "\nСледующий навык: Пока-что не предусмотрен.";

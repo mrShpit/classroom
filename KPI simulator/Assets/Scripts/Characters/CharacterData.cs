@@ -6,5 +6,5 @@ public class CharacterData : MonoBehaviour
     public string characterName;
     public int xp;
     public int level;
-    public AudioSource voice;
+    public AudioSource voice { get; set; }
 }

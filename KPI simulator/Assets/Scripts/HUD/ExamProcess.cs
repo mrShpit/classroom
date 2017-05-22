@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using System;
+using System.Threading;
 
 public class ExamProcess : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class ExamProcess : MonoBehaviour
         }
         set
         {
+            if (value < 0)
+                value = 0;
             currentPatience = value;
             QuestionBar.GetComponentsInChildren<Image>()[6].fillAmount = value / 100;
         }
@@ -159,6 +162,9 @@ public class ExamProcess : MonoBehaviour
             yield break;
         }
 
+        this.GetComponents<AudioSource>()[2].Play();
+        this.GetComponents<AudioSource>()[2].volume = 0.2f;
+
         teacher = currentTeacher;
 
         ExamIsRunning = true;
@@ -173,9 +179,6 @@ public class ExamProcess : MonoBehaviour
 
         this.gameObject.transform.SetAsLastSibling(); //Сделать панель активной для EventSystem
 
-        for (int i = 0; i < allStudents.Count; i++)
-            allStudents[i].currentAnswer = new Answer();
-
         activeStudent = allStudents[0]; //Тут повтор кода, исправить потом  
 
         float sumPatience = 0f;
@@ -183,14 +186,17 @@ public class ExamProcess : MonoBehaviour
 
         for (int i = 0; i < 2; i++) // Количество вопросов
         {
-            yield return StartCoroutine(askQuestion()); //Задать вопрос
-            //Указать вопрос на QuestionBar
+            yield return StartCoroutine(askQuestion()); //Задать вопрос                                                   
 
             QuestionBar.SetActive(true);
             QuestionInfo.text = teacher.subjectName + ". Теория " + (i + 1) +". Сложность: " + teacher.GetComponent<CharacterData>().level;
             FullAnswerProgress = 0f; // Начальное состояние общего прогресса ответа
             CurrentPatience = 100f;
-            
+            for (int s = 0; s < allStudents.Count; s++)
+                allStudents[s].currentAnswer = new Answer();
+
+            DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
+
             while (CurrentPatience > 0 && FullAnswerProgress < 100f) //Пока преподу не надоело или ответ не готов
             {
                 teacherReaction = TeacherReaction.Comment; // Дефолтная реакция препода
@@ -203,28 +209,50 @@ public class ExamProcess : MonoBehaviour
 
                 //teacher interaction
                 lastTurnAnswerProgress = FullAnswerProgress - lastTurnAnswerProgress;
-                DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
 
-                if (teacherReaction == TeacherReaction.Comment) // Стандартный комментарий
+                if (teacherReaction == TeacherReaction.Comment && FullAnswerProgress < 100 && CurrentPatience != 0 ) // Стандартный комментарий
                 {
                     string[] teacherComment = GetTeacherComment(lastTurnAnswerProgress).Split('/');
                     yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
                         teacherComment, teacher.GetComponent<CharacterData>().voice)));
+
+                    ChangePatience(- teacher.AnnoySpeed, "Время идет"); 
                 }
-                else if (teacherReaction == TeacherReaction.Cheat) // Был пойман на трюке
+                else if (teacherReaction == TeacherReaction.Cheat ) // Был пойман на трюке
                 {
                     string[] teacherComment = CheatReaction().Split('/');
                     yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
                         teacherComment, teacher.GetComponent<CharacterData>().voice)));
                 } // Иначе коммента не будет, а терпение препода само не измениться
 
-                DM.HideDialogBox();
+                if (CurrentPatience != 0 && FullAnswerProgress < 100f)
+                    DM.HideDialogBox();
             }
-            
+
+            if (FullAnswerProgress < 100f)
+            {
+                string comment = "Ладно, это лишь трата времени./Достаточно.";
+                activeStudent.currentStress += 20;
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                       comment.Split('/') , teacher.GetComponent<CharacterData>().voice)));
+                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Провал вопроса", false);
+            }
+            else
+            {
+                string comment = "Этого мне достаточно./Хорошая работа.";
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                        comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Вопрос отвечен", true);
+            }
+
+            DM.HideDialogBox();
+
             sumPatience += CurrentPatience;
             sumSuccess += FullAnswerProgress;
         }
-        
+
+        this.GetComponents<AudioSource>()[2].Stop();
+
         QuestionBar.SetActive(false);
         yield return StartCoroutine( giveResult( GetMark(sumSuccess / 2 , sumPatience / 2) ) ); // 2 - количество вопросов, сделать универсальным
         
@@ -233,7 +261,7 @@ public class ExamProcess : MonoBehaviour
 
     private string CheatReaction()
     {
-        CurrentPatience -= 70;
+        ChangePatience(-70, "Пойман на мухлеже");
         activeStudent.GetComponent<StudentData>().currentStress += 40;
         GetComponents<AudioSource>()[1].Play();
         System.Random r = new System.Random();
@@ -252,15 +280,10 @@ public class ExamProcess : MonoBehaviour
     private string GetTeacherComment(float answerProgress)
     {
         string comment = string.Empty;
-        
-        if (FullAnswerProgress == 100)
-            return "Отлично, этого мне достаточно.";
-
-        CurrentPatience -= teacher.AnnoySpeed; //Время идет
 
         if (answerProgress == 0)
         {
-            CurrentPatience -= teacher.AnnoySpeed; // дополнительный штраф
+            ChangePatience(- teacher.AnnoySpeed * 1.5f, "Молчание"); // дополнительный штраф
 
             System.Random r = new System.Random();
             int var = r.Next(0, 6);
@@ -286,14 +309,13 @@ public class ExamProcess : MonoBehaviour
                     break;
             }
         }
-        else if (answerProgress < 10 && FullAnswerProgress < 25)
+        else if (answerProgress < 10 && FullAnswerProgress < 60)
         {
-            CurrentPatience -= ( teacher.AnnoySpeed / 2); // дополнительный штраф
+            ChangePatience( -( teacher.AnnoySpeed * 1.5f), "Плохой ответ"); // дополнительный штраф
             comment = "Это было.../Слабовато.";
         }
         else if (answerProgress < 10 && FullAnswerProgress < 100)
         {
-            CurrentPatience -= ( teacher.AnnoySpeed / 2); // дополнительный штраф
             comment = "Хватит тянуть. Не так много осталось сказать.";
         }
         else if (answerProgress < 50 && FullAnswerProgress < 60)
@@ -309,11 +331,8 @@ public class ExamProcess : MonoBehaviour
             comment = "Отлично. Вопрос почти целиком раскрыт./Почти.";
         }
         
-        if (CurrentPatience == 0)
-        {
-            comment += "/Ладно, мне это надоело./Достаточно этой траты времени.";
-        }
-        else if (CurrentPatience < 20)
+
+        if (CurrentPatience < 20)
         {
             System.Random r = new System.Random();
             int var = r.Next(0, 3);
@@ -374,15 +393,15 @@ public class ExamProcess : MonoBehaviour
         float scorePercent = (avSuccessPercent + avAnnoyPersent) / 2;
         Debug.Log(scorePercent);
 
-        if (scorePercent >= 90)
+        if (scorePercent >= 85)
             return "A";
-        else if (scorePercent >= 80)
-            return "B";
         else if (scorePercent >= 70)
+            return "B";
+        else if (scorePercent >= 55)
             return "C";
-        else if (scorePercent >= 60)
+        else if (scorePercent >= 40)
             return "D";
-        else if (scorePercent >= 50)
+        else if (scorePercent >= 25)
             return "E";
         else
             return "F";
@@ -410,13 +429,13 @@ public class ExamProcess : MonoBehaviour
                 text = "Надеюсь, этот вопрос не будет слишком сложным./Я шучу./Мне всё-равно.";
                 break;
             case 1:
-                text = "Следующий вопрос я точно давал на лекции./Кажеться...";
+                text = "Этот вопрос может быть не простым.";
                 break;
             case 2:
-                text = "Я хочу чтобы ты детально раскрыл следующий вопрос...";
+                text = "Я хочу чтобы ты детально раскрыл вопрос, который я сейчас задам.";
                 break;
             case 3:
-                text = "В следующем вопросе меня особо интересуют детали.";
+                text = "В этой теме меня особенно интересуют детали.";
                 break;
         }
 
@@ -434,6 +453,15 @@ public class ExamProcess : MonoBehaviour
         List<string> text = new List<string>() { "Зачет окончен.", "Твой результат: " + mark , "Можешь быть свободен."};
         yield return StartCoroutine(DM.Talk(teacher.GetComponent<CharacterData>().characterName, text, teacher.GetComponent<CharacterData>().voice));
         DM.HideDialogBox();
+    }
+
+    private void ChangePatience(float change, string comment)
+    {
+        CurrentPatience += change;
+        if (change > 0)
+            teacher.GetComponent<NPC_Character>().FloatingTextReaction(comment, true);
+        else if (change <0)
+            teacher.GetComponent<NPC_Character>().FloatingTextReaction(comment, false);
     }
 
     //Действия
@@ -486,7 +514,7 @@ public class ExamProcess : MonoBehaviour
         if (activeStudent.currentAnswer.AnswerProgress < 100)
         {
             float SubjectKnowing = activeStudent.AverageSubjectSkill(teacher.usedSubjects) * 10; // Max = 100
-            SubjectKnowing -= ( teacher.GetComponent<CharacterData>().level * 10 );
+            SubjectKnowing = SubjectKnowing * (1 - teacher.GetComponent<CharacterData>().level / 10) ;
 
             System.Random r = new System.Random();
 
@@ -550,32 +578,43 @@ public class ExamProcess : MonoBehaviour
     private string Speak_NormalAnswer()
     {
         float answer = activeStudent.currentAnswer.AnswerProgress;
-        if (activeStudent.currentAnswer.AnswerProgress < teacher.GetComponent<CharacterData>().level * 10 )
-            answer /= 2;
+        if(activeStudent.currentStress > 50)
+            answer = answer * (1.5f - activeStudent.currentStress / 100);
 
         FullAnswerProgress += answer;
         activeStudent.currentAnswer = new Answer();
+        string comment = "";
 
         if(answer == 0)
         {
-            return "Вы испуганно шевелите губами. Это не очень эффективно./Прежде чем пытаться ответить, стоит сначала подумать.";
+            if (activeStudent.currentStress == 0)
+                return "Вы настолько испуганы, что с трудом издаете звуки./Преподавателя это раздражает.";
+            else
+                return "Вы задумчиво шевелите губами. Это не очень эффективно./Прежде чем пытаться ответить, стоит сначала подумать.";
         }
         else if(answer < 25)
         {
-            return "Вы неуверенно проговариваете вслух пришедший на ум вариант ответа";
+            comment = "Вы неуверенно проговариваете вслух пришедший на ум вариант ответа.";
         }
         else if(answer < 50)
         {
-            return  "Вы слегка скомканно рассказываете все, что смогли вспомнить";
+            comment = "Вы слегка скомканно рассказываете все, что смогли вспомнить.";
         }
         else if (answer < 75)
         {
-            return "Вы даете немного витиеватый, но уверенный ответ";
+            comment = "Вы даете немного витиеватый, но уверенный ответ.";
         }
         else
         {
-            return "Вы убедительно излагаете все, что пришло вам на ум";
+            comment = "Вы убедительно излагаете все, что пришло вам на ум.";
         }
+
+        if(activeStudent.currentStress > 50)
+        {
+            comment += "/Сильный стресс мешает вам свободно говорить.";
+        }
+
+        return comment;
     }
 
     private string LogicGame()
@@ -594,15 +633,16 @@ public class ExamProcess : MonoBehaviour
 
     private string MobileBrowser()
     {
+        int r = new System.Random().Next(0, 10);
         string comment = string.Empty;
         comment = "Пока " + teacher.GetComponent<CharacterData>().characterName +
             " отвлекаеться на свои записи, вы аккуратно вытаскиваете телефон из кармана и ложите его на колено.";
         comment += "/Вы ненавязчиво опускате глаза на экран, делая вид что сосредоточенно думаете.";
 
-        if (new System.Random().Next(0, 3) == 2)
+        if (r < 3)
         {
             comment += "/Стоило вам разблокировать телефон, как преподаватель резко поднял голову...";
-            if (new System.Random().Next(0, 2) != 2)
+            if (r != 0)
             {
                 comment += "/" + (teacher.GetComponent<CharacterData>().characterName + " посмотерел по сторонам и опять опустил глаза на свои бумаги");
             }
@@ -615,7 +655,7 @@ public class ExamProcess : MonoBehaviour
 
         comment += "/Вы запустили браузер./...";
 
-        switch (new System.Random().Next(0, 3))
+        switch (r % 3)
         {
             case 0:
                 comment += "/Буквально среди первых ссылок есть полезная информация.";
@@ -623,16 +663,16 @@ public class ExamProcess : MonoBehaviour
                 break;
             case 1:
                 comment += "/Вам понадобилось некоторое время, но вы нашли кое-что полезное.";
-                CurrentPatience -= teacher.AnnoySpeed;
+                ChangePatience(-teacher.AnnoySpeed, "Лишнее ожидание");
                 activeStudent.currentAnswer.AnswerProgress += 30;
                 break;
             case 2:
-                CurrentPatience -= teacher.AnnoySpeed;
+                ChangePatience(-teacher.AnnoySpeed, "Лишнее ожидание");
                 comment += "/Вам никак не удаеться найти хоть что-то пригодное для ответа.";
                 break;
         }
 
-        if (new System.Random().Next(0, 3) != 2)
+        if (r < 7)
         {
             comment += "/Вы спрятали телефон обратно в карман.";
         }
@@ -652,9 +692,9 @@ public class ExamProcess : MonoBehaviour
         if (activeStudent.currentAnswer.AnswerProgress < teacher.GetComponent<CharacterData>().level * 10)
             answer /= 2;
         if (answer < 40)
-            CurrentPatience -= (teacher.AnnoySpeed / 2);
+            ChangePatience(-(teacher.AnnoySpeed / 2), "Наглость");
         else
-            CurrentPatience -= teacher.AnnoySpeed;
+            ChangePatience(-(teacher.AnnoySpeed), "Наглость");
         FullAnswerProgress += answer;
         activeStudent.currentAnswer = new Answer();
 
@@ -668,7 +708,7 @@ public class ExamProcess : MonoBehaviour
     private string CasualTalking()
     {
         activeStudent.currentStress -= 5;
-        CurrentPatience += 20;
+        ChangePatience(20, "Отвлеченность");
         teacherReaction = TeacherReaction.NoComment;
         return "Вы попробовали отвлечь преподавателя посторонней темой./Он охотно рассказал свое мнение по вопросу." + 
             "/Видимо, это ему интереснее чем ваши попытки сдать зачет.";

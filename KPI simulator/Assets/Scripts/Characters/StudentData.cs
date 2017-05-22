@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class StudentData : MonoBehaviour
 {
-    public int currentStress;
+    public float currentStress;
     public Answer currentAnswer;
     public int[] discipLevels;
     public int unspentSkillPoints

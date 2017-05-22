@@ -9,6 +9,7 @@ namespace Assets
     public class Dialogue
     {
         public string DialogueName;
+        public bool IsAutomatic;
         public List<Flag> conditionCharFlags;
         public List<Flag> conditionWorldFlags;
         public List<string> questsPassedNeeded;
@@ -16,6 +17,7 @@ namespace Assets
         public int RepNeeded; 
         public List<DialogueNode> dialogueNodes;
         public bool OnlyOneUse;
+        public int SavedNode { get; set; }
 
         private bool used;
 

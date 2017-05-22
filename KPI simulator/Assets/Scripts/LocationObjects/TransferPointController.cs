@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class TransferPointController : MonoBehaviour
 {
-
     public string destinationLevelName;
     public int Index;
     public int destinationIndex;
@@ -21,8 +20,13 @@ public class TransferPointController : MonoBehaviour
 
     IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
-        if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (otherObject.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E) && 
+            !FindObjectOfType<PlayerController>().changingLocation && !FindObjectOfType<DialogueBoxManager>().talkActive)
         {
+            FindObjectOfType<PlayerController>().changingLocation = true;
+
+            this.GetComponent<AudioSource>().Play();
+
             CameraFollow camera = FindObjectOfType<CameraFollow>();
             camera.speedCoef = 1.0f;
 
@@ -31,10 +35,13 @@ public class TransferPointController : MonoBehaviour
             yield return StartCoroutine(sf.FadeToBlack());
 
             FindObjectOfType<PlayerController>().StartPoint = destinationIndex; // Указать точку входа в локацию
+            FindObjectOfType<PlayerController>().changingLocation = false;
             SceneManager.LoadScene(destinationLevelName); // Загрузить локацию
 
             yield return StartCoroutine(sf.FadeToClear());
             camera.speedCoef = 0.1f;
+
+
         }
     }
 }

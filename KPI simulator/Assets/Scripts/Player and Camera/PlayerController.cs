@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerController : CharacterData
 {
     public float speed;
+    public bool changingLocation;
     Rigidbody2D myBody;
     AnimatorController myAnim;
     float hInput;
@@ -37,7 +38,6 @@ public class PlayerController : CharacterData
 
         myBody = this.GetComponent<Rigidbody2D>();
         myAnim = AnimatorController.instance;
-
         triggerField = this.transform.Find("TriggerField").GetComponent<PlayerTriggerController>();
     }
 	
@@ -70,7 +70,7 @@ public class PlayerController : CharacterData
         }
     }
 
-    public void Move(float horizontalInput, float verticalInput)
+    public void Move (float horizontalInput, float verticalInput)
     {
         Vector2 moveVel = new Vector2();
         moveVel.x = horizontalInput * speed;

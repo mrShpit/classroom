@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour {
     private float half_height;
 
     public Transform targetTrans;
+    public NPC_Character Interlocutor;
 
     private static bool ItExists;
     public float speedCoef = 0.1f;
@@ -32,17 +33,26 @@ public class CameraFollow : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    void LateUpdate ()
+    void LateUpdate () //Блокирование выхода камеры за границы карты
     {
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, xMin + 0.25f, xMax + 0.25f),
-            Mathf.Clamp(transform.position.y, yMin + 0.25f, yMax + 0.25f),
-            transform.position.z);
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, xMin + 0.25f, xMax + 0.25f),
+                Mathf.Clamp(transform.position.y, yMin + 0.25f, yMax + 0.25f),
+                transform.position.z);
     }
 
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, targetTrans.position, speedCoef) + new Vector3(0,0,-1);
+        if (Interlocutor == null)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetTrans.position, speedCoef) + new Vector3(0, 0, -1);
+        }
+        else
+        {
+            Vector3 dialogueFocus = new Vector3((targetTrans.position.x + Interlocutor.transform.position.x) / 2,
+                (targetTrans.position.y + Interlocutor.transform.position.y) / 2, -1);
+            transform.position = Vector3.Lerp(transform.position, dialogueFocus, speedCoef);
+        }
     }
 
     void OnEnable()

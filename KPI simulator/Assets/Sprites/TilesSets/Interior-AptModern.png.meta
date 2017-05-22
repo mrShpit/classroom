@@ -1,13 +1,22 @@
 fileFormatVersion: 2
 guid: afdb22c98dbcff04b81c465a74cbc26f
-timeCreated: 1489685446
+timeCreated: 1495444067
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Interior-AptModern_0
+    21300002: Interior-AptModern_1
+    21300004: Interior-AptModern_2
+    21300006: Interior-AptModern_3
+    21300008: Interior-AptModern_4
+    21300010: Interior-AptModern_5
+    21300012: Interior-AptModern_6
+    21300014: Interior-AptModern_7
+    21300016: Interior-AptModern_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,7 +35,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -56,7 +65,124 @@ TextureImporter:
     allowsAlphaSplitting: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Interior-AptModern_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 480
+        width: 45
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 575
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_2
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 292
+        width: 194
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 121
+        width: 288
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 115
+        width: 87
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 106
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 19
+        width: 87
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 10
+        width: 45
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Interior-AptModern_8
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 25
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -6,7 +6,7 @@ public class FloatingText : MonoBehaviour
 {
     public float moveSpeed;
     public float timeToDestroy;
-    public string text;
+    public string text { get; set; }
     public Text displayText;
     public Color textColor;
     public bool Clone;
