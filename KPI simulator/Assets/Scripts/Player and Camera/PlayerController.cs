@@ -23,7 +23,7 @@ public class PlayerController : CharacterData
     private static bool ItExists;
     PlayerTriggerController triggerField;
     public int StartPoint = -1;
-
+    
     void Start ()
     {
         if (!ItExists)
@@ -40,19 +40,25 @@ public class PlayerController : CharacterData
         myAnim = AnimatorController.instance;
         triggerField = this.transform.Find("TriggerField").GetComponent<PlayerTriggerController>();
     }
-	
-	void FixedUpdate ()
+
+    public void Move(float horizontalInput, float verticalInput)
+    {
+        Vector2 moveVel = new Vector2();
+        moveVel.x = horizontalInput * speed;
+        moveVel.y = verticalInput * speed;
+        myBody.velocity = moveVel;
+    }
+
+    void FixedUpdate ()
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
-
         if ((hInput == 0 && vInput == 0) || !canMove)
         {
             Move(0, 0);
             myAnim.UpdateSpeed(0, 0);
             return;
         }
-
         if (hInput != 0 && vInput == 0)
         {
             Move(hInput, 0);
@@ -60,7 +66,6 @@ public class PlayerController : CharacterData
             triggerField.HorizontalMovement(hInput);
             return;
         }
-
         if (vInput != 0 && hInput == 0)
         {
             Move(0, vInput);
@@ -68,13 +73,5 @@ public class PlayerController : CharacterData
             triggerField.VerticalMovement(vInput);
             return;
         }
-    }
-
-    public void Move (float horizontalInput, float verticalInput)
-    {
-        Vector2 moveVel = new Vector2();
-        moveVel.x = horizontalInput * speed;
-        moveVel.y = verticalInput * speed;
-        myBody.velocity = moveVel;
     }
 }

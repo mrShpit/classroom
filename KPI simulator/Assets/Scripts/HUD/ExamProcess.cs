@@ -3,8 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.Linq;
 using System;
 using System.Threading;
+using System.IO;
 
 public class ExamProcess : MonoBehaviour
 {
@@ -21,15 +23,15 @@ public class ExamProcess : MonoBehaviour
     public Text SubjectSkillTB;
     public Text CommentTB;
     public Text StudentAnswerProgressTB;
-    public Text QuestionInfo; 
- 
+    public Text QuestionInfo;
+
+    public List<int[]> actionHistory;
+    public int summaryQuestionsCount;
+
     private StudentData activeStudent;
     enum TargetType { think, speak, act, passive };
     private bool playerMove;
     private TeacherData teacher;
-
-    private enum TeacherReaction { Cheat, Comment, NoComment};
-    private TeacherReaction teacherReaction = TeacherReaction.Comment;
 
     private float fullAnswerProgress;
     public float FullAnswerProgress
@@ -154,137 +156,91 @@ public class ExamProcess : MonoBehaviour
 
     //Экзамен
 
-    public IEnumerator StartExam(TeacherData currentTeacher, List<StudentData> allStudents)
+    private void SaveStats()
     {
-        if(allStudents.Count == 0)
+        string path = @"C:\ExamData.txt";
+        StreamWriter tw = new StreamWriter(path, false);
+
+        if (!File.Exists(path))
         {
-            Debug.Log("Must be at least one student");
-            yield break;
+            File.Create(path).Dispose();
         }
+  
+        tw.WriteLine(summaryQuestionsCount);
 
-        this.GetComponents<AudioSource>()[2].Play();
-        this.GetComponents<AudioSource>()[2].volume = 0.2f;
+        string textData = string.Empty;
+        foreach (int[] stat in actionHistory)
+            textData += stat[0] + "." + stat[1] + "." + stat[2] + "/";
 
-        teacher = currentTeacher;
-
-        ExamIsRunning = true;
-        FindObjectOfType<PhoneController>().canUse = false;
+        textData = textData.Substring(0, textData.Length - 1);
+        tw.WriteLine(textData);
         
-        GameObject studentObject = allStudents[0].gameObject; //Позже сделать это для всего списка
-        ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
-        yield return StartCoroutine(sf.FadeToBlack()); //Затемнить экран
-        studentObject.transform.position = currentTeacher.GetComponent<TeacherData>().ExamSitPlaces[0];
-        GameObject clone = (GameObject)Instantiate(chair, studentObject.transform.position, Quaternion.Euler(Vector3.zero)); //Посадить на стулья
-        yield return StartCoroutine(sf.FadeToClear()); //Снова показать экран
+        tw.Close();
+    }
 
-        this.gameObject.transform.SetAsLastSibling(); //Сделать панель активной для EventSystem
-
-        activeStudent = allStudents[0]; //Тут повтор кода, исправить потом  
-
-        float sumPatience = 0f;
-        float sumSuccess = 0f;
-
-        for (int i = 0; i < 2; i++) // Количество вопросов
+    private void LoadStats()
+    {
+        string path = @"C:\ExamData.txt";
+        if(!File.Exists(path))
         {
-            yield return StartCoroutine(askQuestion()); //Задать вопрос                                                   
+            actionHistory = new List<int[]>();
+            summaryQuestionsCount = 0;
+            return;
+        }
+        actionHistory = new List<int[]>();
 
-            QuestionBar.SetActive(true);
-            QuestionInfo.text = teacher.subjectName + ". Теория " + (i + 1) +". Сложность: " + teacher.GetComponent<CharacterData>().level;
-            FullAnswerProgress = 0f; // Начальное состояние общего прогресса ответа
-            CurrentPatience = 100f;
-            for (int s = 0; s < allStudents.Count; s++)
-                allStudents[s].currentAnswer = new Answer();
+        string[] allData = File.ReadAllLines(path);
+        summaryQuestionsCount = Convert.ToInt32(allData[0]);
+        string[] actionsLog = allData[1].Split('/');
 
-            DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
+        foreach(string actionLog in actionsLog)
+        {
+            int[] actionData = new int[3];
+            actionData[0] = Convert.ToInt32(actionLog.Split('.')[0]);
+            actionData[1] = Convert.ToInt32(actionLog.Split('.')[1]);
+            actionData[2] = Convert.ToInt32(actionLog.Split('.')[2]);
 
-            while (CurrentPatience > 0 && FullAnswerProgress < 100f) //Пока преподу не надоело или ответ не готов
-            {
-                teacherReaction = TeacherReaction.Comment; // Дефолтная реакция препода
-                ExamChoiceBox.SetActive(true);
-                UpdateExamChoiceBox(activeStudent);
-                float lastTurnAnswerProgress = FullAnswerProgress;
-                playerMove = true;
-                while (playerMove)
-                    yield return null; //Ход игрока. Поставит ExamChoiceBox в false
+            actionHistory.Add(actionData);
+        }
+    }
 
-                //teacher interaction
-                lastTurnAnswerProgress = FullAnswerProgress - lastTurnAnswerProgress;
+    private void LogAction(int skillCode, bool fail)
+    {
+        int actionIndex = actionHistory.FindIndex(x => x[0] == skillCode);
 
-                if (teacherReaction == TeacherReaction.Comment && FullAnswerProgress < 100 && CurrentPatience != 0 ) // Стандартный комментарий
-                {
-                    string[] teacherComment = GetTeacherComment(lastTurnAnswerProgress).Split('/');
-                    yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
-                        teacherComment, teacher.GetComponent<CharacterData>().voice)));
-
-                    ChangePatience(- teacher.AnnoySpeed, "Время идет"); 
-                }
-                else if (teacherReaction == TeacherReaction.Cheat ) // Был пойман на трюке
-                {
-                    string[] teacherComment = CheatReaction().Split('/');
-                    yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
-                        teacherComment, teacher.GetComponent<CharacterData>().voice)));
-                } // Иначе коммента не будет, а терпение препода само не измениться
-
-                if (CurrentPatience != 0 && FullAnswerProgress < 100f)
-                    DM.HideDialogBox();
-            }
-
-            if (FullAnswerProgress < 100f)
-            {
-                string comment = "Ладно, это лишь трата времени./Достаточно.";
-                activeStudent.currentStress += 20;
-                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
-                       comment.Split('/') , teacher.GetComponent<CharacterData>().voice)));
-                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Провал вопроса", false);
-            }
+        if (actionIndex == -1)
+        {
+            if (fail)
+                actionHistory.Add(new int[] { skillCode, 0, 1 });
             else
-            {
-                string comment = "Этого мне достаточно./Хорошая работа.";
-                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
-                        comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
-                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Вопрос отвечен", true);
-            }
-
-            DM.HideDialogBox();
-
-            sumPatience += CurrentPatience;
-            sumSuccess += FullAnswerProgress;
+                actionHistory.Add(new int[] { skillCode, 1, 0 });
         }
-
-        this.GetComponents<AudioSource>()[2].Stop();
-
-        QuestionBar.SetActive(false);
-        yield return StartCoroutine( giveResult( GetMark(sumSuccess / 2 , sumPatience / 2) ) ); // 2 - количество вопросов, сделать универсальным
-        
-        ExamIsRunning = false;
-    }
-
-    private string CheatReaction()
-    {
-        ChangePatience(-70, "Пойман на мухлеже");
-        activeStudent.GetComponent<StudentData>().currentStress += 40;
-        GetComponents<AudioSource>()[1].Play();
-        System.Random r = new System.Random();
-        int var = r.Next(0, 3);
-        switch (var)
+        else
         {
-            case 0:
-                return "Эй, а это еще что такое?!/Я не разрешал этим пользоваться.";
-            case 1:
-                return  "Быстро спрячь это обратно!/Не помню чтобы я разрешал использовать какие-либо источники информации.";
-            default:
-                return "Как это понимать?/Ты думаешь что я слепой?";
+            if (fail)
+                actionHistory[actionIndex][2]++;
+            else
+                actionHistory[actionIndex][1]++;
         }
     }
 
-    private string GetTeacherComment(float answerProgress)
+    private bool CheckSuccess(int factor)
     {
-        string comment = string.Empty;
+        if (summaryQuestionsCount == 0)
+            return true;
+        System.Random r = new System.Random();
+        if (r.Next(0, summaryQuestionsCount) < factor)
+            return false;
+        else
+            return true;
+    }
+
+    private string GetTeacherComment(float answerProgress) //Вызывать только если ответ на вопрос не окончен
+    {
+        string comment = "???";
 
         if (answerProgress == 0)
         {
-            ChangePatience(- teacher.AnnoySpeed * 1.5f, "Молчание"); // дополнительный штраф
-
             System.Random r = new System.Random();
             int var = r.Next(0, 6);
             switch (var)
@@ -311,7 +267,6 @@ public class ExamProcess : MonoBehaviour
         }
         else if (answerProgress < 10 && FullAnswerProgress < 60)
         {
-            ChangePatience( -( teacher.AnnoySpeed * 1.5f), "Плохой ответ"); // дополнительный штраф
             comment = "Это было.../Слабовато.";
         }
         else if (answerProgress < 10 && FullAnswerProgress < 100)
@@ -339,7 +294,7 @@ public class ExamProcess : MonoBehaviour
             switch (var)
             {
                 case 0:
-                    comment += "/Мое терпение ограничено.";
+                    comment += "/Ну?/Мое терпение ограничено.";
                     break;
                 case 1:
                     comment += "/Можешь считать что мне почти надоело ждать пока ты что-то выдавишь из себя.";
@@ -413,7 +368,7 @@ public class ExamProcess : MonoBehaviour
         LevelTB.text = "Уровень " + student.GetComponent<CharacterData>().level.ToString();
         StressLevelTB.text = "Стресс: " + student.GetComponent<StudentData>().currentStress + "%";
         SubjectSkillTB.text = "Знание предмета: " + student.AverageSubjectSkill(teacher.usedSubjects) + "/10";
-        StudentAnswerProgressTB.text = "Ответ: " + student.currentAnswer.AnswerProgress + "%";
+        StudentAnswerProgressTB.text = "Ответ: " + student.currentAnswer + "%";
     }
 
     IEnumerator askQuestion()
@@ -464,36 +419,126 @@ public class ExamProcess : MonoBehaviour
             teacher.GetComponent<NPC_Character>().FloatingTextReaction(comment, false);
     }
 
+    public IEnumerator StartExam(TeacherData currentTeacher, List<StudentData> allStudents)
+    {
+        if (allStudents.Count == 0)
+        {
+            Debug.Log("Must be at least one student");
+            yield break;
+        }
+
+        this.GetComponents<AudioSource>()[2].Play();
+        this.GetComponents<AudioSource>()[2].volume = 0.2f;
+
+        teacher = currentTeacher;
+
+        ExamIsRunning = true;
+        FindObjectOfType<PhoneController>().canUse = false;
+
+        GameObject studentObject = allStudents[0].gameObject; //Позже сделать это для всего списка
+        ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+        yield return StartCoroutine(sf.FadeToBlack()); //Затемнить экран
+        studentObject.transform.position = currentTeacher.GetComponent<TeacherData>().ExamSitPlaces[0];
+        GameObject clone = (GameObject)Instantiate(chair, studentObject.transform.position, Quaternion.Euler(Vector3.zero)); //Посадить на стулья
+        yield return StartCoroutine(sf.FadeToClear()); //Снова показать экран
+
+        this.gameObject.transform.SetAsLastSibling(); //Сделать панель активной для EventSystem
+
+        activeStudent = allStudents[0]; //Тут повтор кода, исправить потом  
+
+        float sumPatience = 0f;
+        float sumSuccess = 0f;
+        LoadStats();
+
+        for (int i = 0; i < 2; i++) // Количество вопросов
+        {
+            yield return StartCoroutine(askQuestion()); //Задать вопрос                                                   
+
+            QuestionBar.SetActive(true);
+            QuestionInfo.text = teacher.subjectName + ". Теория " + (i + 1) + ". Сложность: " + teacher.GetComponent<CharacterData>().level;
+            FullAnswerProgress = 0f; // Начальное состояние общего прогресса ответа
+            CurrentPatience = 100f;
+            for (int s = 0; s < allStudents.Count; s++)
+                allStudents[s].currentAnswer = 0;
+
+            DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
+
+            while (CurrentPatience > 0 && FullAnswerProgress < 100f) //Пока преподу не надоело или ответ не готов
+            {
+                ExamChoiceBox.SetActive(true);
+                UpdateExamChoiceBox(activeStudent);
+                float lastTurnAnswerProgress = FullAnswerProgress;
+                playerMove = true;
+                while (playerMove)
+                    yield return null; //Ход игрока. Поставит ExamChoiceBox в false
+
+                if (CurrentPatience != 0 && FullAnswerProgress < 100f)
+                    DM.HideDialogBox(); // До сюда
+            }
+
+            if (FullAnswerProgress < 100f)
+            {
+                string comment = "Ладно, это лишь трата времени./Достаточно.";
+                activeStudent.currentStress += 20;
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                       comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Провал вопроса", false);
+            }
+            else
+            {
+                string comment = "Всё верно./Этого мне достаточно.";
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                        comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+                teacher.GetComponent<NPC_Character>().FloatingTextReaction("Вопрос отвечен", true);
+            }
+
+            DM.HideDialogBox();
+
+            //Take all actionData from list and add line to file
+            summaryQuestionsCount++;
+            sumPatience += CurrentPatience;
+            sumSuccess += FullAnswerProgress;
+        }
+
+        this.GetComponents<AudioSource>()[2].Stop();
+
+        QuestionBar.SetActive(false);
+        yield return StartCoroutine(giveResult(GetMark(sumSuccess / 2, sumPatience / 2))); // 2 - количество вопросов, сделать универсальным
+
+        SaveStats();
+        ExamIsRunning = false;
+    }
+
     //Действия
 
     private IEnumerator PerformAction(Skill skill) //Сразу запустит текстбокс. Иначе говоря, комментарий действия обязателен
     {
         this.GetComponents<AudioSource>()[0].Play();
         
-        string Comment = string.Empty;
+        ActionData actionData = new ActionData();
 
         switch (skill.effectCode)
         {
             case 0:
-                Comment = Think_Remember();
+                actionData = Think_Remember();
                 break;
             case 1:
-                Comment = Speak_NormalAnswer();
+                actionData = Speak_NormalAnswer();
                 break;
             case 2:
-                Comment = LogicGame();
+                actionData = LogicGame();
                 break;
-            case 3:
-                Comment = DeductionGame();
-                break;
+            //case 3:
+            //    actionData = DeductionGame();
+            //    break;
             case 4:
-                Comment = MobileBrowser();
+                actionData = MobileBrowser();
                 break;
             case 5:
-                Comment = Conviction();
+                actionData = Conviction();
                 break;
             case 6:
-                Comment = CasualTalking();
+                actionData = CasualTalking();
                 break;
             default:
                 Debug.Log("incorrect effect code");
@@ -504,33 +549,64 @@ public class ExamProcess : MonoBehaviour
 
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
         yield return StartCoroutine(DM.ShowDialogBox());
-        yield return StartCoroutine(DM.Talk(Comment.Split('/')));
+        yield return StartCoroutine(DM.Talk(actionData.actionText.Split('/')));
+        activeStudent.currentAnswer += actionData.studentAnswerBonus;
+        FullAnswerProgress += actionData.fullAnswerBonus;
+
+        if(actionData.fail)
+            GetComponents<AudioSource>()[1].Play();
+        activeStudent.currentStress += actionData.stressChange;
+
+        if (actionData.patienceChange != 0)
+            ChangePatience(actionData.patienceChange, actionData.patienceChangeComment);
+
+
+        if(actionData.teacherReactionText == string.Empty && FullAnswerProgress < 100) //Если текст не был определен, вызываеться коммент по умолчанию
+            yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                        GetTeacherComment(actionData.fullAnswerBonus).Split('/'), teacher.GetComponent<CharacterData>().voice)));
+        else if (actionData.teacherReactionText != string.Empty) //Если есть текст, он выдаеться
+            yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                           actionData.teacherReactionText.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+
+        if (!actionData.fail && FullAnswerProgress < 100 && CurrentPatience > 0)
+            ChangePatience(-teacher.AnnoySpeed, "Время идет");
+
+        //saveActionData to List
+
+        LogAction(skill.effectCode, actionData.fail);
+        
         playerMove = false;
-        //Далее ожидаеться ответ от препода
+        
     }
 
-    private string Think_Remember()
+    private ActionData Think_Remember()
     {
-        if (activeStudent.currentAnswer.AnswerProgress < 100)
+        ActionData dataToReturn = new ActionData();
+        dataToReturn.patienceChange = -teacher.AnnoySpeed;
+        dataToReturn.patienceChangeComment = "Молчание";
+
+        if (activeStudent.currentAnswer < 100)
         {
             float SubjectKnowing = activeStudent.AverageSubjectSkill(teacher.usedSubjects) * 10; // Max = 100
             SubjectKnowing = SubjectKnowing * (1 - teacher.GetComponent<CharacterData>().level / 10) ;
-
+            dataToReturn.studentAnswerBonus = SubjectKnowing;
+            
             System.Random r = new System.Random();
 
-            activeStudent.currentAnswer.AnswerProgress += SubjectKnowing;
             if (SubjectKnowing == 0)
             {
-                return "Вам нечего вспоминать./Вы понятия не имеете что от вас хотят.";
+               dataToReturn.actionText =  "Вам нечего вспоминать./Вы понятия не имеете что от вас хотят.";
             }
             else if (SubjectKnowing < 10)
             {
                 switch (r.Next(0, 2))
                 {
                     case 0:
-                        return "Вы едва понимаете что от вас хотят";
+                        dataToReturn.actionText = "Вы едва понимаете что от вас хотят";
+                        break;
                     default:
-                        return "Сцепив зубы, вы пытаетесь вспомнить хоть что-то.";
+                        dataToReturn.actionText = "Сцепив зубы, вы пытаетесь вспомнить хоть что-то.";
+                        break;
                 }     
             }
             else if (SubjectKnowing < 40)
@@ -538,11 +614,14 @@ public class ExamProcess : MonoBehaviour
                 switch(r.Next(0, 3))
                 {
                     case 0:
-                        return "Для вас это не очень простой вопрос./Вы пытаетесь вспомнить что можете.";
+                        dataToReturn.actionText = "Для вас это не очень простой вопрос./Вы пытаетесь вспомнить что можете.";
+                        break;
                     case 1:
-                        return "Вы не очень сильны в этой теме, но кое-что помните.";
+                        dataToReturn.actionText = "Вы не очень сильны в этой теме, но кое-что помните.";
+                        break;
                     default:
-                        return "Сосредоточившись, вы постепенно вспоминаете отрывки лекций";
+                        dataToReturn.actionText = "Сосредоточившись, вы постепенно вспоминаете отрывки лекций";
+                        break;
                 }
             }
             else if (SubjectKnowing < 70)
@@ -550,9 +629,11 @@ public class ExamProcess : MonoBehaviour
                 switch (r.Next(0, 2))
                 {
                     case 0:
-                        return "Вы неплохо разбираетесь в этом вопросе.";
+                        dataToReturn.actionText = "Вы неплохо разбираетесь в этом вопросе.";
+                        break;
                     case 1:
-                        return "В памяти постепенно вслпывают последние лекции.";
+                        dataToReturn.actionText = "В памяти постепенно вслпывают последние лекции.";
+                        break;
                 }
             }
             else 
@@ -560,81 +641,80 @@ public class ExamProcess : MonoBehaviour
                 switch (r.Next(0, 2))
                 {
                     case 0:
-                        return "Для вас этот вопрос совсем не сложный";
+                        dataToReturn.actionText = "Для вас этот вопрос совсем не сложный";
+                        break;
                     case 1:
-                        return "Вы знаете ответ и чувствуете уверенность.";
+                        dataToReturn.actionText = "Вы знаете ответ и чувствуете уверенность.";
+                        break;
                 }
             }
         }
         else
         {
-            return "У вас в голове есть все, что нужно для ответа";
+            dataToReturn.actionText = "У вас в голове есть все, что нужно для ответа";
         }
 
-        return "";
-       
+        return dataToReturn;
     }
 
-    private string Speak_NormalAnswer()
+    private ActionData Speak_NormalAnswer()
     {
-        float answer = activeStudent.currentAnswer.AnswerProgress;
+        ActionData dataToReturn = new ActionData();
+        float answer = activeStudent.currentAnswer;
         if(activeStudent.currentStress > 50)
             answer = answer * (1.5f - activeStudent.currentStress / 100);
-
-        FullAnswerProgress += answer;
-        activeStudent.currentAnswer = new Answer();
-        string comment = "";
+        dataToReturn.fullAnswerBonus = answer;
+        activeStudent.currentAnswer = 0;
 
         if(answer == 0)
         {
             if (activeStudent.currentStress == 0)
-                return "Вы настолько испуганы, что с трудом издаете звуки./Преподавателя это раздражает.";
+                dataToReturn.actionText = "Вы настолько испуганы, что с трудом издаете звуки./Преподавателя это раздражает.";
             else
-                return "Вы задумчиво шевелите губами. Это не очень эффективно./Прежде чем пытаться ответить, стоит сначала подумать.";
+                dataToReturn.actionText = "Вы задумчиво шевелите губами. Это не очень эффективно./Прежде чем пытаться ответить, стоит сначала подумать.";
         }
         else if(answer < 25)
         {
-            comment = "Вы неуверенно проговариваете вслух пришедший на ум вариант ответа.";
+            dataToReturn.actionText = "Вы неуверенно проговариваете вслух пришедший на ум вариант ответа.";
         }
         else if(answer < 50)
         {
-            comment = "Вы слегка скомканно рассказываете все, что смогли вспомнить.";
+            dataToReturn.actionText = "Вы слегка скомканно рассказываете все, что смогли вспомнить.";
         }
         else if (answer < 75)
         {
-            comment = "Вы даете немного витиеватый, но уверенный ответ.";
+            dataToReturn.actionText = "Вы даете немного витиеватый, но уверенный ответ.";
         }
         else
         {
-            comment = "Вы убедительно излагаете все, что пришло вам на ум.";
+            dataToReturn.actionText = "Вы убедительно излагаете все, что пришло вам на ум.";
         }
 
         if(activeStudent.currentStress > 50)
         {
-            comment += "/Сильный стресс мешает вам свободно говорить.";
+            dataToReturn.actionText += "/Сильный стресс мешает вам свободно говорить.";
         }
 
-        return comment;
+        return dataToReturn;
     }
 
-    private string LogicGame()
+    private ActionData LogicGame()
     {
-        activeStudent.currentAnswer.AnswerProgress += 10;
-        return "Здесь будет мини-игра с головоломкой, сложность которой зависит от уровня знания предмета./" +
-            "При успешном решении шкала ответа вырастет";
+        ActionData dataToReturn = new ActionData();
+        dataToReturn.patienceChange = -teacher.AnnoySpeed;
+        dataToReturn.patienceChangeComment = "Молчание";
+        dataToReturn.studentAnswerBonus = 10;
+        dataToReturn.actionText = "Здесь будет мини-пазл, решение которого повышает очки готовности";
+
+        return dataToReturn;
     }
 
-    private string DeductionGame()
+    private ActionData MobileBrowser()
     {
-        activeStudent.currentAnswer.AnswerProgress += 10;
-        return "Здесь будет мини-игра с головоломкой, сложность которой зависит от уровня шкалы ответа студента./" +
-            "При успешном решении загадки шкала ответа может значительно вырасти";
-    }
-
-    private string MobileBrowser()
-    {
-        int r = new System.Random().Next(0, 10);
+        ActionData dataToReturn = new ActionData();
         string comment = string.Empty;
+
+        int r = new System.Random().Next(0, 10);
         comment = "Пока " + teacher.GetComponent<CharacterData>().characterName +
             " отвлекаеться на свои записи, вы аккуратно вытаскиваете телефон из кармана и ложите его на колено.";
         comment += "/Вы ненавязчиво опускате глаза на экран, делая вид что сосредоточенно думаете.";
@@ -648,8 +728,7 @@ public class ExamProcess : MonoBehaviour
             }
             else
             {
-                teacherReaction = TeacherReaction.Cheat;
-                return comment;
+                dataToReturn.fail = true;
             }
         }
 
@@ -659,15 +738,13 @@ public class ExamProcess : MonoBehaviour
         {
             case 0:
                 comment += "/Буквально среди первых ссылок есть полезная информация.";
-                activeStudent.currentAnswer.AnswerProgress += 50;
+                dataToReturn.studentAnswerBonus += 50;
                 break;
             case 1:
                 comment += "/Вам понадобилось некоторое время, но вы нашли кое-что полезное.";
-                ChangePatience(-teacher.AnnoySpeed, "Лишнее ожидание");
-                activeStudent.currentAnswer.AnswerProgress += 30;
+                dataToReturn.studentAnswerBonus += 30;
                 break;
             case 2:
-                ChangePatience(-teacher.AnnoySpeed, "Лишнее ожидание");
                 comment += "/Вам никак не удаеться найти хоть что-то пригодное для ответа.";
                 break;
         }
@@ -680,65 +757,100 @@ public class ExamProcess : MonoBehaviour
         {
             comment += "/Вы собирались было спрятать телефон назад, но он соскользнул с колена и упал вниз с громким глухим звуком."
                 + "/Вам пришлось быстро подхватить его.";
-            teacherReaction = TeacherReaction.Cheat;
+            dataToReturn.fail = true;
         }
         
-        return comment;
+        dataToReturn.actionText = comment;
+
+        if(dataToReturn.fail)
+        {
+            dataToReturn.patienceChange = -50;
+            dataToReturn.patienceChangeComment = "Пойман на мухлеже";
+            dataToReturn.stressChange = 30;
+
+            System.Random rand = new System.Random();
+            int var = rand.Next(0, 3);
+            switch (var)
+            {
+                case 0:
+                    dataToReturn.teacherReactionText = "Эй, а это еще что такое?!/Я не разрешал этим пользоваться.";
+                    break;
+                case 1:
+                    dataToReturn.teacherReactionText = "Быстро спрячь это обратно!/Не помню чтобы я разрешал использовать какие-либо источники информации.";
+                    break;
+                default:
+                    dataToReturn.teacherReactionText = "Как это понимать?/Ты думаешь что я слепой?";
+                    break;
+            }
+        }
+
+        return dataToReturn;
     }
 
-    private string Conviction()
+    private ActionData Conviction()
     {
-        float answer = activeStudent.currentAnswer.AnswerProgress * 1.5f; // Множитель убеждения
-        if (activeStudent.currentAnswer.AnswerProgress < teacher.GetComponent<CharacterData>().level * 10)
+        ActionData dataToReturn = new ActionData();
+        float answer = activeStudent.currentAnswer * 1.5f; // Множитель убеждения
+        if (activeStudent.currentAnswer < teacher.GetComponent<CharacterData>().level * 10)
             answer /= 2;
         if (answer < 40)
-            ChangePatience(-(teacher.AnnoySpeed / 2), "Наглость");
+        {
+            dataToReturn.patienceChange = -(teacher.AnnoySpeed / 2);
+            dataToReturn.patienceChangeComment = "Наглость";
+        }
         else
-            ChangePatience(-(teacher.AnnoySpeed), "Наглость");
-        FullAnswerProgress += answer;
-        activeStudent.currentAnswer = new Answer();
+        {
+            dataToReturn.patienceChange = -teacher.AnnoySpeed;
+            dataToReturn.patienceChangeComment = "Наглость";
+        }
 
+        dataToReturn.fullAnswerBonus = answer;
+        
         if (answer == 0)
-            return "Попытка захватить инициативу не имея какого-либо ответа лишь вызвала у преподователя раздражение.";
+            dataToReturn.actionText = "Попытка захватить инициативу не имея какого-либо ответа лишь вызвала у преподователя раздражение.";
         else
-            return "Глядя преподавателю в глаза, вы быстро проговорили свой ответ с уверенным тоном./" + 
+            dataToReturn.actionText = "Глядя преподавателю в глаза, вы быстро проговорили свой ответ с уверенным тоном./" + 
                 "Такая напористость слегка напрягла преподавателя, но зато все прозвучало более убедительно.";
+
+        activeStudent.currentAnswer = 0;
+
+        return dataToReturn;
     }
 
-    private string CasualTalking()
+    private ActionData CasualTalking()
     {
-        activeStudent.currentStress -= 5;
-        ChangePatience(20, "Отвлеченность");
-        teacherReaction = TeacherReaction.NoComment;
-        return "Вы попробовали отвлечь преподавателя посторонней темой./Он охотно рассказал свое мнение по вопросу." + 
+        ActionData dataToReturn = new ActionData();
+        dataToReturn.patienceChange = 20;
+        dataToReturn.patienceChangeComment = "Отвлеченность";
+        dataToReturn.stressChange = -5;
+        dataToReturn.actionText = "Вы попробовали отвлечь преподавателя посторонней темой./Он охотно рассказал свое мнение по вопросу." +
             "/Видимо, это ему интереснее чем ваши попытки сдать зачет.";
+
+        return dataToReturn;
     }
 }
 
-public class Answer
+public class ActionData
 {
-    public Answer()
+    public ActionData()
     {
-        AnswerProgress = 0;
+        studentAnswerBonus = 0;
+        fullAnswerBonus = 0;
+        patienceChange = 0;
+        patienceChangeComment = string.Empty;
+        actionText = string.Empty;
+        teacherReactionText = string.Empty;
+        stressChange = 0;
+        fail = false;
     }
-
-    public Answer(float p)
-    {
-        AnswerProgress = p;
-    }
-
-    private float answerProgress ;
-    public float AnswerProgress
-    {
-        get
-        {
-            return answerProgress;
-        }
-        set
-        {
-            if (value > 100)
-                value = 100;
-            answerProgress = value;
-        }
-    }
+    
+    public float studentAnswerBonus;
+    public float fullAnswerBonus;
+    public float patienceChange;
+    public string patienceChangeComment;
+    public string actionText;
+    public string teacherReactionText;
+    public float stressChange;
+    public bool fail;
 }
+

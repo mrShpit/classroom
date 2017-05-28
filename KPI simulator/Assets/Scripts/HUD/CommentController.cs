@@ -9,9 +9,28 @@ public class CommentController : MonoBehaviour
     public bool highlight;
     public bool autoComment;
     public bool oneUse;
-    private bool used;
+    public bool used { get; set; }
     public List<Flag> WorldFlagConditions;
     public List<Flag> WorldFlagConsequences; //Флаги поднимуться после комментария или триггера если коммент автоматический и пустой
+
+    void Start()
+    {
+        int portraitInd = FindObjectOfType<DirectorController>().savedObjects.FindIndex(x => x.objectName == this.gameObject.name);
+
+        if (portraitInd != -1) //Загрузка информации
+        {
+            ObjectSaveData savedPortrait = FindObjectOfType<DirectorController>().savedObjects[portraitInd];
+            CommentController [] thisObjectComments = this.gameObject.GetComponents<CommentController>();
+            for (int i = 0; i < thisObjectComments.Length; i++)
+            {
+                if (this == thisObjectComments[i])
+                {
+                    this.used = savedPortrait.usedComments[i];
+                    break;
+                }
+            }            
+        }
+    }
 
     IEnumerator OnTriggerStay2D(Collider2D otherObject)
     {
@@ -31,6 +50,7 @@ public class CommentController : MonoBehaviour
             DM.HideDialogBox();
 
             RaiseWorldFlags();
+            Save();
         }
     } //Игрок нажал Е. Должен быть текст
 
@@ -42,6 +62,9 @@ public class CommentController : MonoBehaviour
         {
             if (oneUse)
                 used = true;
+
+            if (this.GetComponent<AudioSource>() != null)
+                this.GetComponent<AudioSource>().Play();
 
             if (MonologueLines.Count != 0)
             {
@@ -56,6 +79,7 @@ public class CommentController : MonoBehaviour
             }
 
             RaiseWorldFlags();
+            Save();
         }
     }
 
@@ -74,4 +98,32 @@ public class CommentController : MonoBehaviour
         }
     }
 
+    private void Save()
+    {
+        int portraitInd = FindObjectOfType<DirectorController>().savedObjects.FindIndex(x => x.objectName == this.gameObject.name);
+        if (portraitInd == -1)
+        {
+            List<bool> usedFactors = new List<bool>();
+            CommentController[] thisObjectComments = this.gameObject.GetComponents<CommentController>();
+            foreach (CommentController comment in thisObjectComments)
+            {
+                usedFactors.Add(comment.used);
+            }
+            FindObjectOfType<DirectorController>().savedObjects.Add(
+                new ObjectSaveData()
+                {
+                    objectName = this.gameObject.name,
+                    usedComments = usedFactors
+                }
+                );
+        }
+        else
+        {
+            ObjectSaveData saveData = FindObjectOfType<DirectorController>().savedObjects[portraitInd];
+            for(int i = 0; i < saveData.usedComments.Count; i++)
+            {
+                saveData.usedComments[i] = this.gameObject.GetComponents<CommentController>()[i].used;
+            }
+        }
+    }
 }

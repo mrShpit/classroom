@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets;
 
 public class NPC_Character : CharacterData
@@ -35,6 +36,18 @@ public class NPC_Character : CharacterData
 
         if (this.GetComponent<AudioSource>() != null)
             voice = GetComponent<AudioSource>();
+
+
+        int portraitInd = FindObjectOfType<DirectorController>().savedObjects.FindIndex(x => x.objectName == this.gameObject.name); 
+
+        if (portraitInd != -1) //Загрузка информации
+        {
+            ObjectSaveData savedPortrait = FindObjectOfType<DirectorController>().savedObjects[portraitInd];
+            this.Reputation = savedPortrait.reputation;
+            this.Character_Flags = savedPortrait.charFlags;
+            this.dialogueSystem.allDialogues = savedPortrait.allDialogues;
+        }
+
     }
 
     public void ChangeReputation(int rep)

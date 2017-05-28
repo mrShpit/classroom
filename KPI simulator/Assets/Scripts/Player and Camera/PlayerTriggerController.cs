@@ -45,6 +45,4 @@ public class PlayerTriggerController : MonoBehaviour {
             trigger.offset = new Vector2(-0.35f, 0.1f);
         }
     }
-
-    
 }

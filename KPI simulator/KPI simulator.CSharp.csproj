@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Classes\Dialogue.cs" />
     <Compile Include="Assets\Classes\Quest.cs" />
+    <Compile Include="Assets\EndGame.cs" />
     <Compile Include="Assets\GUI\LetterSpacing.cs" />
     <Compile Include="Assets\Scripts\Characters\CharacterData.cs" />
     <Compile Include="Assets\Scripts\Characters\NPC_Character.cs" />

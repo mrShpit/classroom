@@ -190,12 +190,12 @@ public class DialogueBoxManager : MonoBehaviour
             if (letter % 3 == 0 && voiceBeep != null)
                 voiceBeep.Play();
             
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.015f);
         }
 
         IsTyping = false;
 
-        if (speaker != string.Empty)
+        if (speaker != string.Empty) //In case skip
         {
             dText.text = speaker + ": " + textLine;
         }

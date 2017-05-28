@@ -112,5 +112,13 @@ namespace Assets
         }
     }
 
-
+    [System.Serializable]
+    public class ObjectSaveData
+    {
+        public string objectName;
+        public int reputation;
+        public List<Flag> charFlags;
+        public List<Dialogue> allDialogues;
+        public List<bool> usedComments;
+    }
 }

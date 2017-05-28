@@ -12,7 +12,5 @@ public class DepthSortByY : MonoBehaviour
     {
         Renderer renderer = this.GetComponent<Renderer>();
         renderer.sortingOrder = -(int)(transform.position.y * IsometricRangePerYUnit);
-
-	
 	}
 }

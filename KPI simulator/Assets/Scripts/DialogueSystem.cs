@@ -92,9 +92,17 @@ public class DialogueSystem : MonoBehaviour
                     dialogueVariant.SavedNode = targetNodeID;
             }
         }
+
         DM.HideDialogBox();
+
+        if (dialogueVariant.OnlyOneUse == true)
+        {
+            dialogueVariant.Used = true;
+        }
+        
         FindObjectOfType<CameraFollow>().Interlocutor = null; // Сбросить камеру
         dialogueEnabled = false;
+        Save();
     }
 
     public IEnumerator NPC_Dialogue()
@@ -159,6 +167,7 @@ public class DialogueSystem : MonoBehaviour
         }
 
         DM.HideDialogBox();
+        Save();
     }
 
     private void ExecuteChoiceConsequences(DialogueChoice choice)
@@ -244,6 +253,30 @@ public class DialogueSystem : MonoBehaviour
                 break;
             }
 
+        }
+    }
+
+    private void Save()
+    {
+        int portraitInd = FindObjectOfType<DirectorController>().savedObjects.FindIndex(x => x.objectName == this.gameObject.name);
+        if(portraitInd == -1)
+        {
+            FindObjectOfType<DirectorController>().savedObjects.Add(
+                new ObjectSaveData()
+                {
+                    objectName = this.gameObject.name,
+                    allDialogues = this.allDialogues,
+                    charFlags = this.speaker.Character_Flags,
+                    reputation = this.speaker.Reputation,
+                }
+                );
+        }
+        else
+        {
+            ObjectSaveData saveData = FindObjectOfType<DirectorController>().savedObjects[portraitInd];
+            saveData.allDialogues = this.allDialogues;
+            saveData.charFlags = this.speaker.Character_Flags;
+            saveData.reputation = this.speaker.Reputation;
         }
     }
 }

@@ -21,6 +21,4 @@ public class NPC_StudentBehavior : NPC_Character
             dialogueSystem.dialogueEnabled = false;
         }
     }
-
-
 }

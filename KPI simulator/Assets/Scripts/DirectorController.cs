@@ -12,6 +12,8 @@ public class DirectorController : MonoBehaviour
     public List<Quest> finishedQuests;
     public List<Quest> passedQuests;
 
+    public List<ObjectSaveData> savedObjects;
+
     // Use this for initialization
     void Start ()
     {
@@ -62,7 +64,4 @@ public class DirectorController : MonoBehaviour
             this.finishedQuests.Add(questFinished);
         }
     }
-
-
-
 }

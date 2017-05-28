@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class StudentData : MonoBehaviour
 {
     public float currentStress;
-    public Answer currentAnswer;
+    public float currentAnswer;
     public int[] discipLevels;
     public int unspentSkillPoints
     {
@@ -22,6 +22,10 @@ public class StudentData : MonoBehaviour
     void Awake()
     {
         discipLevels = new int[FindObjectOfType<SkillController>().allDisciplines.Count]; //Сменить загрузку навыков
+        discipLevels[0] = 1;
+        discipLevels[1] = 1;
+        discipLevels[2] = 1;
+        discipLevels[3] = 1;
     }
 
     public float AverageSubjectSkill(List<Discipline.subject> neededSubjects) //Out of ten
@@ -42,5 +46,4 @@ public class StudentData : MonoBehaviour
         average /= neededSubjects.Count;
         return average;
     }
-
 }

@@ -172,7 +172,6 @@ public class SkillController : MonoBehaviour
                     newButton.transform.SetParent(ThirdSkillNodeGrid.transform);
                     break;
             }
-
         }
 
         setButtonsFadeDuration(0.2f);
@@ -187,7 +186,8 @@ public class SkillController : MonoBehaviour
         CharacterDiciplinesLevels[i]++;
         characterUnspentSkillPoints -= allDisciplines[i].cost;
         RefreshButtons();
-        skillPointsLeftText.text = "Непотраченных очков навыков: " + characterUnspentSkillPoints;
+        skillPointsLeftText.text = "Непотраченных очков навыков: " 
+            + characterUnspentSkillPoints;
     }
 
     private void ShowComment(int discIndex)
