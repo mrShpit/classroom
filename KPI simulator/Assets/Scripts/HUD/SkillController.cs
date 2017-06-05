@@ -314,11 +314,10 @@ public class Skill
 {
     public string Name;
     public string comment;
-    public enum SkillTarget { self, teacher};
-    public SkillTarget skillTarger;
     public enum SkillType { empty, think, speak, act, passive };
     public SkillType skillType;
-    public float bonus;
     public int effectCode;
+    public enum RegressType { noRegress, onlyFail, anyUse};
+    public RegressType regressType;
 }
 

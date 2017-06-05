@@ -26,7 +26,9 @@ public class ExamProcess : MonoBehaviour
     public Text QuestionInfo;
 
     public List<int[]> actionHistory;
+    public int summaryFailCount;
     public int summaryQuestionsCount;
+    public int averageMark;
 
     private StudentData activeStudent;
     enum TargetType { think, speak, act, passive };
@@ -165,74 +167,106 @@ public class ExamProcess : MonoBehaviour
         {
             File.Create(path).Dispose();
         }
-  
-        tw.WriteLine(summaryQuestionsCount);
-
+        
+        tw.WriteLine(summaryQuestionsCount + "." + summaryFailCount + "." + averageMark);
         string textData = string.Empty;
         foreach (int[] stat in actionHistory)
-            textData += stat[0] + "." + stat[1] + "." + stat[2] + "/";
+            textData += stat[0] + "." + stat[1] + "/";
 
         textData = textData.Substring(0, textData.Length - 1);
         tw.WriteLine(textData);
-        
         tw.Close();
     }
 
     private void LoadStats()
     {
+        actionHistory = new List<int[]>();
         string path = @"C:\ExamData.txt";
-        if(!File.Exists(path))
+        if (!File.Exists(path))
         {
-            actionHistory = new List<int[]>();
+            averageMark = 25;
+            summaryFailCount = 0;
             summaryQuestionsCount = 0;
             return;
         }
-        actionHistory = new List<int[]>();
 
         string[] allData = File.ReadAllLines(path);
-        summaryQuestionsCount = Convert.ToInt32(allData[0]);
+
+        if (allData.Length == 0)
+        {
+            averageMark = 25;
+            summaryFailCount = 0;
+            summaryQuestionsCount = 0;
+            return;
+        }
+
+        summaryQuestionsCount = Convert.ToInt32(allData[0].Split('.')[0]);
+        summaryFailCount = Convert.ToInt32(allData[0].Split('.')[1]);
+        averageMark = Convert.ToInt32(allData[0].Split('.')[2]);
+
         string[] actionsLog = allData[1].Split('/');
 
         foreach(string actionLog in actionsLog)
         {
-            int[] actionData = new int[3];
+            int[] actionData = new int[2];
             actionData[0] = Convert.ToInt32(actionLog.Split('.')[0]);
             actionData[1] = Convert.ToInt32(actionLog.Split('.')[1]);
-            actionData[2] = Convert.ToInt32(actionLog.Split('.')[2]);
 
             actionHistory.Add(actionData);
         }
     }
 
-    private void LogAction(int skillCode, bool fail)
+    private void LogAction(int skillCode, Skill.RegressType regressType, bool fail)
     {
+        if (regressType == Skill.RegressType.noRegress)
+            return;
+
         int actionIndex = actionHistory.FindIndex(x => x[0] == skillCode);
 
         if (actionIndex == -1)
         {
-            if (fail)
-                actionHistory.Add(new int[] { skillCode, 0, 1 });
+            if ( (regressType == Skill.RegressType.onlyFail && fail) || regressType == Skill.RegressType.anyUse)
+                actionHistory.Add(new int[] { skillCode, 1});
             else
-                actionHistory.Add(new int[] { skillCode, 1, 0 });
+                actionHistory.Add(new int[] { skillCode, 0});
         }
         else
         {
-            if (fail)
-                actionHistory[actionIndex][2]++;
-            else
+            if ( (regressType == Skill.RegressType.onlyFail && fail) || regressType == Skill.RegressType.anyUse)
                 actionHistory[actionIndex][1]++;
         }
     }
 
-    private bool CheckSuccess(int factor)
+    private int CheckSuccess(int effectCode, double chanceMod) // 0 - success, 1 - fail, 2 - repeated fail
     {
-        if (summaryQuestionsCount == 0)
-            return true;
-        System.Random r = new System.Random();
-        if (r.Next(0, summaryQuestionsCount) < factor)
-            return false;
+        float summary = 0;
+        foreach (int [] stats in actionHistory)
+        {
+            summary += stats[1];
+        }
+
+        float regressLevel = 0;
+        if(actionHistory.FindIndex(x => x[0] == effectCode) != -1)
+        {
+            regressLevel = actionHistory.Find(x => x[0] == effectCode)[1];
+        }
+
+        double teacherLevelPenalty = teacher.GetComponent<CharacterData>().level * 0.05;
+        double failProbability = regressLevel * (summaryFailCount + 1) / ((summary + 1) * ( summaryQuestionsCount + 1 )) + teacherLevelPenalty;
+        failProbability *= chanceMod;
+        
+        double successCheck = new System.Random().NextDouble();
+        Debug.Log("fail: " + failProbability + " random: " + successCheck);
+
+        if (successCheck >= failProbability)
+            return 0;
         else
-            return true;
+        {
+            if (regressLevel == 0)
+                return 1;
+            else
+                return 2;
+        }
     }
 
     private string GetTeacherComment(float answerProgress) //Вызывать только если ответ на вопрос не окончен
@@ -368,11 +402,17 @@ public class ExamProcess : MonoBehaviour
         LevelTB.text = "Уровень " + student.GetComponent<CharacterData>().level.ToString();
         StressLevelTB.text = "Стресс: " + student.GetComponent<StudentData>().currentStress + "%";
         SubjectSkillTB.text = "Знание предмета: " + student.AverageSubjectSkill(teacher.usedSubjects) + "/10";
-        StudentAnswerProgressTB.text = "Ответ: " + student.currentAnswer + "%";
+        StudentAnswerProgressTB.text = "Ответ: " + student.СurrentAnswer + "%";
     }
 
     IEnumerator askQuestion()
     {
+        int difficulty = averageMark / 10;
+        if (difficulty > teacher.GetComponent<CharacterData>().level * 2)
+            difficulty = teacher.GetComponent<CharacterData>().level * 2;
+        
+        teacher.questionDifficulty = difficulty;
+
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
 
         string text = string.Empty;
@@ -397,7 +437,7 @@ public class ExamProcess : MonoBehaviour
         yield return StartCoroutine(DM.ShowDialogBox());
         yield return StartCoroutine(DM.Talk(teacher.GetComponent<CharacterData>().characterName , text.Split('/') , teacher.GetComponent<CharacterData>().voice));
         yield return StartCoroutine(DM.Talk("*Мистер Браун задает вопрос по теории. Уровень сложности: " 
-            + teacher.GetComponent<CharacterData>().level));
+            + teacher.questionDifficulty));
         DM.HideDialogBox();
     } //Тут будут разные виды вопросов
 
@@ -455,18 +495,21 @@ public class ExamProcess : MonoBehaviour
             yield return StartCoroutine(askQuestion()); //Задать вопрос                                                   
 
             QuestionBar.SetActive(true);
-            QuestionInfo.text = teacher.subjectName + ". Теория " + (i + 1) + ". Сложность: " + teacher.GetComponent<CharacterData>().level;
+            QuestionInfo.text = teacher.subjectName + ". Теория " + (i + 1) + ". Сложность: " + teacher.questionDifficulty;
             FullAnswerProgress = 0f; // Начальное состояние общего прогресса ответа
             CurrentPatience = 100f;
             for (int s = 0; s < allStudents.Count; s++)
-                allStudents[s].currentAnswer = 0;
+                allStudents[s].СurrentAnswer = 0;
 
             DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
 
             while (CurrentPatience > 0 && FullAnswerProgress < 100f) //Пока преподу не надоело или ответ не готов
             {
                 ExamChoiceBox.SetActive(true);
+                GameObject myEventSystem = GameObject.Find("EventSystem");
+                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 UpdateExamChoiceBox(activeStudent);
+
                 float lastTurnAnswerProgress = FullAnswerProgress;
                 playerMove = true;
                 while (playerMove)
@@ -486,23 +529,40 @@ public class ExamProcess : MonoBehaviour
             }
             else
             {
-                string comment = "Всё верно./Этого мне достаточно.";
+                string comment = "Этого мне достаточно.";
                 yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
                         comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
                 teacher.GetComponent<NPC_Character>().FloatingTextReaction("Вопрос отвечен", true);
             }
 
-            DM.HideDialogBox();
+            
 
             //Take all actionData from list and add line to file
             summaryQuestionsCount++;
             sumPatience += CurrentPatience;
             sumSuccess += FullAnswerProgress;
+            int newAverageMark = (int)(averageMark + (CurrentPatience + FullAnswerProgress) / 2) / 2;
+
+            if(newAverageMark + 20 < averageMark)
+            {
+                string comment = "Должен признать, я в тебе разочарован.";
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                        comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+            }
+            else if (newAverageMark > averageMark + 20)
+            {
+                string comment = "Отличный ответ./Думаю, мне стоит задавать тебе вопросы посложнее.";
+                yield return StartCoroutine((DM.Talk(teacher.GetComponent<CharacterData>().characterName,
+                        comment.Split('/'), teacher.GetComponent<CharacterData>().voice)));
+            }
+
+            DM.HideDialogBox();
+            averageMark = newAverageMark;
         }
 
         this.GetComponents<AudioSource>()[2].Stop();
-
         QuestionBar.SetActive(false);
+        
         yield return StartCoroutine(giveResult(GetMark(sumSuccess / 2, sumPatience / 2))); // 2 - количество вопросов, сделать универсальным
 
         SaveStats();
@@ -511,7 +571,7 @@ public class ExamProcess : MonoBehaviour
 
     //Действия
 
-    private IEnumerator PerformAction(Skill skill) //Сразу запустит текстбокс. Иначе говоря, комментарий действия обязателен
+    private IEnumerator PerformAction(Skill skill)
     {
         this.GetComponents<AudioSource>()[0].Play();
         
@@ -532,13 +592,13 @@ public class ExamProcess : MonoBehaviour
             //    actionData = DeductionGame();
             //    break;
             case 4:
-                actionData = MobileBrowser();
+                actionData = MobileBrowser(skill.effectCode);
                 break;
             case 5:
-                actionData = Conviction();
+                actionData = Conviction(skill.effectCode);
                 break;
             case 6:
-                actionData = CasualTalking();
+                actionData = CasualTalking(skill.effectCode);
                 break;
             default:
                 Debug.Log("incorrect effect code");
@@ -550,11 +610,15 @@ public class ExamProcess : MonoBehaviour
         DialogueBoxManager DM = FindObjectOfType<DialogueBoxManager>();
         yield return StartCoroutine(DM.ShowDialogBox());
         yield return StartCoroutine(DM.Talk(actionData.actionText.Split('/')));
-        activeStudent.currentAnswer += actionData.studentAnswerBonus;
+        activeStudent.СurrentAnswer += (int)actionData.studentAnswerBonus;
         FullAnswerProgress += actionData.fullAnswerBonus;
 
-        if(actionData.fail)
+        if (actionData.fail)
+        {
             GetComponents<AudioSource>()[1].Play();
+            summaryFailCount++;
+        }
+
         activeStudent.currentStress += actionData.stressChange;
 
         if (actionData.patienceChange != 0)
@@ -573,10 +637,9 @@ public class ExamProcess : MonoBehaviour
 
         //saveActionData to List
 
-        LogAction(skill.effectCode, actionData.fail);
+        LogAction(skill.effectCode, skill.regressType, actionData.fail);
         
         playerMove = false;
-        
     }
 
     private ActionData Think_Remember()
@@ -585,19 +648,20 @@ public class ExamProcess : MonoBehaviour
         dataToReturn.patienceChange = -teacher.AnnoySpeed;
         dataToReturn.patienceChangeComment = "Молчание";
 
-        if (activeStudent.currentAnswer < 100)
+        if (activeStudent.СurrentAnswer < 100)
         {
-            float SubjectKnowing = activeStudent.AverageSubjectSkill(teacher.usedSubjects) * 10; // Max = 100
-            SubjectKnowing = SubjectKnowing * (1 - teacher.GetComponent<CharacterData>().level / 10) ;
-            dataToReturn.studentAnswerBonus = SubjectKnowing;
+            float SubjectKnowing = activeStudent.AverageSubjectSkill(teacher.usedSubjects); // Max = 10
+            SubjectKnowing = SubjectKnowing / teacher.questionDifficulty;
+            dataToReturn.studentAnswerBonus = SubjectKnowing * 50;
+            Debug.Log(dataToReturn.studentAnswerBonus);
             
             System.Random r = new System.Random();
 
-            if (SubjectKnowing == 0)
+            if (dataToReturn.studentAnswerBonus == 0)
             {
                dataToReturn.actionText =  "Вам нечего вспоминать./Вы понятия не имеете что от вас хотят.";
             }
-            else if (SubjectKnowing < 10)
+            else if (dataToReturn.studentAnswerBonus < 10)
             {
                 switch (r.Next(0, 2))
                 {
@@ -609,7 +673,7 @@ public class ExamProcess : MonoBehaviour
                         break;
                 }     
             }
-            else if (SubjectKnowing < 40)
+            else if (dataToReturn.studentAnswerBonus < 40)
             {
                 switch(r.Next(0, 3))
                 {
@@ -624,7 +688,7 @@ public class ExamProcess : MonoBehaviour
                         break;
                 }
             }
-            else if (SubjectKnowing < 70)
+            else if (dataToReturn.studentAnswerBonus < 70)
             {
                 switch (r.Next(0, 2))
                 {
@@ -660,11 +724,11 @@ public class ExamProcess : MonoBehaviour
     private ActionData Speak_NormalAnswer()
     {
         ActionData dataToReturn = new ActionData();
-        float answer = activeStudent.currentAnswer;
+        float answer = activeStudent.СurrentAnswer;
         if(activeStudent.currentStress > 50)
             answer = answer * (1.5f - activeStudent.currentStress / 100);
         dataToReturn.fullAnswerBonus = answer;
-        activeStudent.currentAnswer = 0;
+        activeStudent.СurrentAnswer = 0;
 
         if(answer == 0)
         {
@@ -709,31 +773,36 @@ public class ExamProcess : MonoBehaviour
         return dataToReturn;
     }
 
-    private ActionData MobileBrowser()
+    private ActionData MobileBrowser(int skillCode)
     {
         ActionData dataToReturn = new ActionData();
         string comment = string.Empty;
 
-        int r = new System.Random().Next(0, 10);
         comment = "Пока " + teacher.GetComponent<CharacterData>().characterName +
             " отвлекаеться на свои записи, вы аккуратно вытаскиваете телефон из кармана и ложите его на колено.";
         comment += "/Вы ненавязчиво опускате глаза на экран, делая вид что сосредоточенно думаете.";
 
-        if (r < 3)
+        int result = CheckSuccess(skillCode , 1);
+
+        if (result == 1 || result == 2)
         {
-            comment += "/Стоило вам разблокировать телефон, как преподаватель резко поднял голову...";
-            if (r != 0)
-            {
-                comment += "/" + (teacher.GetComponent<CharacterData>().characterName + " посмотерел по сторонам и опять опустил глаза на свои бумаги");
-            }
-            else
-            {
-                dataToReturn.fail = true;
-            }
+            dataToReturn.fail = true;
+            dataToReturn.actionText = comment + "/Внезапно вы осознаете что преподаватель смотрит на вас.";
+            dataToReturn.patienceChange = -50;
+            dataToReturn.patienceChangeComment = "Пойман на мухлеже";
+            dataToReturn.stressChange = 30;
+
+            if (result == 1)
+                dataToReturn.teacherReactionText = "И как это понимать?/Я не разрешал пользоваться техникой.";
+            else if (result == 2)
+                dataToReturn.teacherReactionText = "Ты что, опять за свое?/Я уже говорил тебе что не разрешаю пользоваться телефоном.";
+            
+            return dataToReturn;
         }
 
         comment += "/Вы запустили браузер./...";
 
+        int r = new System.Random().Next(0, 3);
         switch (r % 3)
         {
             case 0:
@@ -748,60 +817,24 @@ public class ExamProcess : MonoBehaviour
                 comment += "/Вам никак не удаеться найти хоть что-то пригодное для ответа.";
                 break;
         }
-
-        if (r < 7)
-        {
-            comment += "/Вы спрятали телефон обратно в карман.";
-        }
-        else
-        {
-            comment += "/Вы собирались было спрятать телефон назад, но он соскользнул с колена и упал вниз с громким глухим звуком."
-                + "/Вам пришлось быстро подхватить его.";
-            dataToReturn.fail = true;
-        }
         
         dataToReturn.actionText = comment;
-
-        if(dataToReturn.fail)
-        {
-            dataToReturn.patienceChange = -50;
-            dataToReturn.patienceChangeComment = "Пойман на мухлеже";
-            dataToReturn.stressChange = 30;
-
-            System.Random rand = new System.Random();
-            int var = rand.Next(0, 3);
-            switch (var)
-            {
-                case 0:
-                    dataToReturn.teacherReactionText = "Эй, а это еще что такое?!/Я не разрешал этим пользоваться.";
-                    break;
-                case 1:
-                    dataToReturn.teacherReactionText = "Быстро спрячь это обратно!/Не помню чтобы я разрешал использовать какие-либо источники информации.";
-                    break;
-                default:
-                    dataToReturn.teacherReactionText = "Как это понимать?/Ты думаешь что я слепой?";
-                    break;
-            }
-        }
 
         return dataToReturn;
     }
 
-    private ActionData Conviction()
+    private ActionData Conviction(int skillCode)
     {
         ActionData dataToReturn = new ActionData();
-        float answer = activeStudent.currentAnswer * 1.5f; // Множитель убеждения
-        if (activeStudent.currentAnswer < teacher.GetComponent<CharacterData>().level * 10)
-            answer /= 2;
-        if (answer < 40)
+        float answer = activeStudent.СurrentAnswer * 1.5f; // Множитель убеждения
+
+        dataToReturn.patienceChange = -teacher.AnnoySpeed;
+        dataToReturn.patienceChangeComment = "Наглость";
+
+        if(CheckSuccess(skillCode, 0.5) == 2)
         {
-            dataToReturn.patienceChange = -(teacher.AnnoySpeed / 2);
-            dataToReturn.patienceChangeComment = "Наглость";
-        }
-        else
-        {
-            dataToReturn.patienceChange = -teacher.AnnoySpeed;
-            dataToReturn.patienceChangeComment = "Наглость";
+            dataToReturn.fail = true;
+            dataToReturn.teacherReactionText = "Нету необходимости устраивать тут спектакль./Говори нормально.";
         }
 
         dataToReturn.fullAnswerBonus = answer;
@@ -812,12 +845,12 @@ public class ExamProcess : MonoBehaviour
             dataToReturn.actionText = "Глядя преподавателю в глаза, вы быстро проговорили свой ответ с уверенным тоном./" + 
                 "Такая напористость слегка напрягла преподавателя, но зато все прозвучало более убедительно.";
 
-        activeStudent.currentAnswer = 0;
+        activeStudent.СurrentAnswer = 0;
 
         return dataToReturn;
     }
 
-    private ActionData CasualTalking()
+    private ActionData CasualTalking(int skillCode)
     {
         ActionData dataToReturn = new ActionData();
         dataToReturn.patienceChange = 20;

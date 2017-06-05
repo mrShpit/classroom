@@ -6,7 +6,22 @@ using System.Collections.Generic;
 public class StudentData : MonoBehaviour
 {
     public float currentStress;
-    public float currentAnswer;
+    public int СurrentAnswer
+    {
+        get
+        {
+            return currentAnswer;
+        }
+        set
+        {
+            if (value > 100)
+                currentAnswer = 100;
+            else
+                currentAnswer = value;
+        }
+    }
+    private int currentAnswer;
+
     public int[] discipLevels;
     public int unspentSkillPoints
     {
