@@ -51,6 +51,11 @@ public class PlayerController : CharacterData
 
     void FixedUpdate ()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = 2;
+        else
+            speed = 1.1f;
+
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
         if ((hInput == 0 && vInput == 0) || !canMove)
